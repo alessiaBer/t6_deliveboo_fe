@@ -1,19 +1,20 @@
-        <script>
-        export default {
-            setup () {
-                
-        
-                return {}
-            }
-        }
-        </script>
+<script>
+import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
+
+export default {
+  components: {
+    AppHeader,
+    AppFooter,
+  },
+};
+</script>
 <template>
-    <div>
-        <h1>Ciao</h1>
-    </div>
+  <AppHeader/>
+  <div>
+    <h1>Ciao</h1>
+  </div>
+  <AppFooter/>
 </template>
 
-
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

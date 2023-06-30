@@ -1,9 +1,18 @@
 import './assets/scss/app.scss'
+
 import { createApp } from 'vue'
 import App from './App.vue'
+
 import { router } from './router'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { faYoutube, faTwitch, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
 
-createApp(App).use(router).mount('#app')
+library.add(faUserSecret, faYoutube, faTwitch, faInstagram, faLinkedin)
+
+createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
