@@ -12,7 +12,11 @@ export default {
 <template>
   <AppHeader/>
   <div>
-    <h1>Ciao</h1>
+    <router-view v-slot="{Component}">
+      <Transition name="fade" mode="out-in">
+        <Component :is="Component" />
+      </Transition>
+    </router-view>
   </div>
   <AppFooter/>
 </template>
