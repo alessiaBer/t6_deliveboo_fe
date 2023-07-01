@@ -38,7 +38,7 @@ export default {
     setAutoplay() {
       this.autoplay = setInterval(() => {
         this.nextImage();
-      }, 8000);
+      }, 7000);
     },
     nextImage() {
       this.activeImage === this.slides.length - 1
@@ -54,16 +54,14 @@ export default {
 
 <template>
   <div class="carousel-background">
-    <div
-      class="carousel-slide"
-      :style="{ backgroundImage: `url(${slides[activeImage].image})` }"
-      :key="slides[activeImage].id"
-      v-show="slides.length > 0"
-    ></div>
+    <div :class="['carousel-slide', 'fader']"
+      :style="{ backgroundImage: `url(${slides[activeImage].image})` }" :key="slides[activeImage].id"
+      v-show="slides.length > 0"></div>
   </div>
 </template>
 
-<style scoped>
+
+<style scoped lang="scss">
 .carousel-background {
   width: 100%;
   height: 400px;
@@ -74,5 +72,27 @@ export default {
   height: 100%;
   background-size: cover;
   background-position: center;
+}
+
+.fader {
+  animation: faderEffect 7s linear;
+}
+
+@keyframes faderEffect {
+  0% {
+    opacity: 0.2;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
 }
 </style>
