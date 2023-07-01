@@ -1,19 +1,26 @@
-        <script>
-        export default {
-            setup () {
-                
-        
-                return {}
-            }
-        }
-        </script>
+<script>
+import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
+
+export default {
+  components: {
+    AppHeader,
+    AppFooter,
+  },
+};
+</script>
 <template>
-    <div>
-        <h1>Ciao</h1>
-    </div>
+  <AppHeader/>
+  <div>
+    <router-view v-slot="{Component}">
+      <Transition name="fade" mode="out-in">
+        <div>
+          <Component :is="Component" />
+        </div>
+      </Transition>
+    </router-view>
+  </div>
+  <AppFooter/>
 </template>
 
-
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
