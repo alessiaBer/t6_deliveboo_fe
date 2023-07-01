@@ -39,7 +39,7 @@ export default {
 footer{
   background-color: #161616;
   color: white;
-  height: 150px;
+  height: 120px;
   padding: 0 2rem;
 }
  .text{

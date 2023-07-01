@@ -9,18 +9,32 @@ export default {
   },
 };
 </script>
+
 <template>
-  <AppHeader/>
-  <div>
-    <router-view v-slot="{Component}">
+  <div id="app">
+    <AppHeader />
+    <body>
       <Transition name="fade" mode="out-in">
-        <div>
+        <router-view v-slot="{ Component }">
           <Component :is="Component" />
-        </div>
+        </router-view>
       </Transition>
-    </router-view>
+    </body>
+    <AppFooter />
   </div>
-  <AppFooter/>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+* {
+  font-family: "Roboto", sans-serif;
+  font-family: "Secular One", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 200px);
+  background-color: transparent;
+}
+
+</style>

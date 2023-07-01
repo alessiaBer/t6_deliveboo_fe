@@ -14,7 +14,9 @@ export default {
 <template>
   <header>
     <nav class="navbar navbar-expand-lg px-4" data-bs-theme="dark">
-      <a class="navbar-brand" href="#">DELIVEBOO</a>
+      <div>
+        <a class="navbar-brand" href="#"><img id="logo" src="../../assets/imgs/deliveroo.png" alt=""></a>
+      </div>
 
       <button
         class="navbar-toggler"
@@ -52,7 +54,13 @@ export default {
 
 <style lang="scss" scoped>
 header {
+  position: sticky;
+  top: 0;
   background-color: #161616;
   color: white;
+}
+
+#logo{
+  height: 80px;
 }
 </style>
