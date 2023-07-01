@@ -30,7 +30,7 @@ export default {
                   </p>
                 </div>
                 <div class="col ">
-                  <router-link :to="{ name: 'home' }" class="card-link btn btn-primary">HOME</router-link>
+                  <router-link :to="{ name: 'home' }" class="card-link btn text-white btn-info">HOME</router-link>
                 </div>
               </div>
 
@@ -41,7 +41,7 @@ export default {
                   </p>
                 </div>
                 <div class="col ">
-                  <a href="http://127.0.0.1:8000/register" target="_blank" class="card-link btn btn-primary">REGISTER</a>
+                  <a href="http://127.0.0.1:8000/register" target="_blank" class="card-link btn text-white btn-info">REGISTER</a>
                 </div>
               </div>
             </div>
