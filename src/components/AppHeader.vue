@@ -3,6 +3,11 @@
 export default {
   name: "AppHeader",
 
+  data(){
+    return{
+      register_url : "http://127.0.0.1:8000/register",
+    }
+  }
 };
 </script>
 
@@ -34,6 +39,10 @@ export default {
             <router-link class="nav-link links" :to="{ name: 'home' }"
               >Home</router-link
             >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link links" target="_blank" :href="this.register_url"
+              >Register</a>
           </li>
         </ul>
       </div>

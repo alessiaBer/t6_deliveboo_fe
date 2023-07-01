@@ -14,7 +14,9 @@ export default {
   <div>
     <router-view v-slot="{Component}">
       <Transition name="fade" mode="out-in">
-        <Component :is="Component" />
+        <div>
+          <Component :is="Component" />
+        </div>
       </Transition>
     </router-view>
   </div>

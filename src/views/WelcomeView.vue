@@ -20,7 +20,8 @@ export default {
           <h2>Hello.</h2>
         </div>
         <div class="col">
-          <OffCanvas />
+          <!-- <OffCanvas /> -->
+        
         </div>
       </div>
     </div>
@@ -29,4 +30,6 @@ export default {
   <CarouselBg />
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>
