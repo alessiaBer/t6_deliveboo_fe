@@ -56,6 +56,7 @@ export default {
 header {
   position: sticky;
   top: 0;
+  z-index: 15;
   background-color: #161616;
   color: white;
 }
