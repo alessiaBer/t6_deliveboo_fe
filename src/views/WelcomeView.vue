@@ -30,7 +30,7 @@ export default {
                   </p>
                 </div>
                 <div class="col ">
-                  <router-link :to="{ name: 'home' }" class="card-link btn text-white btn-info">HOME</router-link>
+                  <router-link :to="{ name: 'home' }" class="card-link btn btn_deliveboo">HOME</router-link>
                 </div>
               </div>
 
@@ -41,7 +41,7 @@ export default {
                   </p>
                 </div>
                 <div class="col ">
-                  <a href="http://127.0.0.1:8000/register" target="_blank" class="card-link btn text-white btn-info">REGISTER</a>
+                  <a href="http://127.0.0.1:8000/register" target="_blank" class="card-link btn btn_deliveboo">REGISTER</a>
                 </div>
               </div>
             </div>
@@ -75,5 +75,9 @@ export default {
 .card{
   color: white;
   background-color: rgba($color: #161616, $alpha: 0.7);
+}
+
+.btn_deliveboo {
+  background-color: #00CDBC;
 }
 </style>

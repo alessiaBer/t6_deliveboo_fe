@@ -52,6 +52,6 @@ footer{
   }
   a:hover{
     cursor: pointer;
-    color: rgb(3, 88, 191) !important;
+    color: #00CDBC !important;
   }
 </style>
