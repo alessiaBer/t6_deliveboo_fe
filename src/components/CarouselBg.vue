@@ -65,6 +65,7 @@ export default {
 .carousel-background {
   width: 100%;
   height: 400px;
+  background-color: #161616;
 }
 
 .carousel-slide {
@@ -80,19 +81,19 @@ export default {
 
 @keyframes faderEffect {
   0% {
-    opacity: 0.2;
+    opacity: 0.5;
   }
 
-  20% {
+  1% {
     opacity: 1;
   }
 
-  90% {
+  99% {
     opacity: 1;
   }
 
   100% {
-    opacity: 0.4;
+    opacity: 0.5;
   }
 }
 </style>

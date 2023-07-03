@@ -43,6 +43,7 @@ export default {
 </script>
 
 <template>
+  
   <section class="aboutme">
     <div class="container my-5">
       <h2>Home</h2>
@@ -68,3 +69,6 @@ export default {
     </div>
   </section>
 </template>
+
+<style lang="scss" scoped>
+</style>
