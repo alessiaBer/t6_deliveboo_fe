@@ -135,71 +135,6 @@ export default {
             },
           ],
         },
-        {
-          id: 3,
-          images: [
-            {
-              id: 1,
-              src: "https://picsum.photos/300/300?image=898",
-              alt: "image",
-            },
-            {
-              id: 2,
-              src: "https://picsum.photos/300/300?image=889",
-              alt: "image",
-            },
-            {
-              id: 3,
-              src: "https://picsum.photos/300/300?image=910",
-              alt: "image",
-            },
-            {
-              id: 4,
-              src: "https://picsum.photos/300/300?image=911",
-              alt: "image",
-            },
-            {
-              id: 5,
-              src: "https://picsum.photos/300/300?image=912",
-              alt: "image",
-            },
-            {
-              id: 6,
-              src: "https://picsum.photos/300/300?image=913",
-              alt: "image",
-            },
-            {
-              id: 7,
-              src: "https://picsum.photos/300/300?image=898",
-              alt: "image",
-            },
-            {
-              id: 8,
-              src: "https://picsum.photos/300/300?image=889",
-              alt: "image",
-            },
-            {
-              id: 9,
-              src: "https://picsum.photos/300/300?image=910",
-              alt: "image",
-            },
-            {
-              id: 10,
-              src: "https://picsum.photos/300/300?image=911",
-              alt: "image",
-            },
-            {
-              id: 11,
-              src: "https://picsum.photos/300/300?image=912",
-              alt: "image",
-            },
-            {
-              id: 12,
-              src: "https://picsum.photos/300/300?image=913",
-              alt: "image",
-            },
-          ],
-        },
       ],
     };
   },
@@ -216,28 +151,32 @@ export default {
 </script>
 
 <template>
-  <div class="slide">
-    <div v-for="row in slideData" :key="row.id" class="row mb-1">
-      <div v-for="image in row.images" :key="image.id" href="#" class="col-2 p-1">
-        <img :src="image.src" :alt="image.alt" class="slide-image" />
+  <section class="slider">
+    <div class="slide">
+      <div v-for="row in slideData" :key="row.id" class="row mb-1">
+        <div v-for="image in row.images" :key="image.id" href="#" class="col-2 p-1">
+          <img :src="image.src" :alt="image.alt" class="slide-image" />
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>
+.slider {
+  background-color: black;
+}
+
 .slide {
-  background: white;
   animation: scroll 20s linear infinite;
 }
 
 .slide:hover {
-  background: white;
   animation-play-state: paused;
 }
 
 .slide .row {
-	flex-wrap: nowrap;
+  flex-wrap: nowrap;
 }
 
 .slide img {
@@ -247,13 +186,13 @@ export default {
   border-radius: 1rem;
   aspect-ratio: 1.5/1;
   object-fit: cover;
-	scale: 100%;
+  scale: 100%;
 }
 
 .slide img:hover {
   filter: saturate(2);
   opacity: 1;
-	scale: 110%;
+  scale: 110%;
 }
 
 .slide img {
@@ -267,6 +206,7 @@ export default {
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-100%);
   }
