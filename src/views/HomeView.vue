@@ -67,7 +67,7 @@ export default {
       <h2>Home</h2>
       <div class="container">
         <select class="form-select w-25 my-5" name="" id="" @click="getRestaurants(selectedType)" v-model="selectedType">
-          <option value="">diocan</option>
+          <option value="">Select Type</option>
           <option :value="tipo.slug" v-for="tipo in types">
             {{ tipo.name }}
           </option>
@@ -75,7 +75,7 @@ export default {
         <div class="row row-cols-1 row-cols-lg-2" v-if="restaurants != []">
           <div class="g-3" v-for="restaurant in restaurants">
             <div class="card">
-              <img class="card-img-top" :src="restaurant.image_url" alt="Card image cap" />
+              <img class="card-img-top" :src="base_API + 'storage/' + restaurant.image_url" alt="Card image cap" />
               <div class="card-body d-flex justify-content-between">
                 <h4 class="card-title">{{ restaurant.name }}</h4>
               </div>
@@ -88,4 +88,9 @@ export default {
   </section>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.aboutme img {
+  height: 333px;
+  object-fit: cover;
+}
+</style>
