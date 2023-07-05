@@ -1,8 +1,12 @@
 <script>
 import axios from 'axios';
+import SlideBanner from "../components/SlideBanner.vue";
 
 export default {
   name: "HomeView",
+  components : {
+    SlideBanner
+  },
   data() {
     return {
       restaurants: [],
@@ -43,6 +47,7 @@ export default {
 </script>
 
 <template>
+  <SlideBanner></SlideBanner>
   
   <section class="aboutme">
     <div class="container my-5">
