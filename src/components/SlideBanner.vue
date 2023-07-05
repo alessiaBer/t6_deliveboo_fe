@@ -1,27 +1,15 @@
 <script>
-[...document.querySelectorAll('.column')].map(column => {
-	column.style.setProperty('--animation', 'slide');
-	column.style.setProperty('height', '200%');
-	column.innerHTML = column.innerHTML + column.innerHTML;
-});
-
 export default {
   name: "SlideBanner",
-
-  data() {
-    return {
-      
-    };
-  },
-  methods: {
-    
-  },
   mounted() {
-   
+    const columns = document.querySelectorAll('.column');
+    columns.forEach(column => {
+      column.style.setProperty('--animation', 'slide');
+      column.style.setProperty('height', '200%');
+      column.innerHTML = column.innerHTML + column.innerHTML;
+    });
   },
 };
-
-
 </script>
 
 
