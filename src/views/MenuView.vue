@@ -21,7 +21,7 @@ export default {
   <div
     class="jumbo p-5 mb-4 bg-body-tertiary rounded-3"
     v-if="store.restaurant"
-    :style="{ backgroundImage: `url(${store.restaurant.image_url})` }"
+    :style="{ backgroundImage: `url(${store.api + 'storage/' + store.restaurant.image_url})` }"
   >
     <div class="container-fluid py-5">
       <div class="cardJumbo">
