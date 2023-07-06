@@ -14,11 +14,9 @@ export default {
   <div id="app">
     <AppHeader />
     <body>
-      <Transition name="fade" mode="out-in">
         <router-view v-slot="{ Component }">
           <Component :is="Component" />
         </router-view>
-      </Transition>
     </body>
     <AppFooter />
   </div>
