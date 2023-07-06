@@ -13,10 +13,10 @@ export default {
 </script>
 
 <template>
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
+  <div class="jumbotron">
+    <div class="movedown">
+      <SlideBanner></SlideBanner>
     </div>
-    <SlideBanner></SlideBanner>
   </div>
 </template>
 
@@ -25,4 +25,9 @@ export default {
     background-image: url('../../public/assets/imgs/deliveroobanner1.png');
     background-size: cover;
   }
+  .movedown{
+    margin-top: 10.2%;
+    margin-bottom: -11.6%;
+  }
+  
 </style>
