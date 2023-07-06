@@ -153,8 +153,8 @@ export default {
 <template>
   <section class="slider">
     <div class="slide">
-      <div v-for="row in slideData" :key="row.id" class="row mb-1">
-        <div v-for="image in row.images" :key="image.id" href="#" class="col-2 p-1">
+      <div v-for="row in slideData" :key="row.id" class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 mb-1">
+        <div v-for="image in row.images" :key="image.id" href="#" class="col p-1">
           <img :src="image.src" :alt="image.alt" class="slide-image" />
         </div>
       </div>
@@ -171,28 +171,25 @@ export default {
   animation: scroll 20s linear infinite;
 }
 
-.slide:hover {
-  animation-play-state: paused;
-}
-
 .slide .row {
   flex-wrap: nowrap;
 }
 
 .slide img {
-  opacity: 0.9;
-  filter: saturate(1);
-  transition: all 1s;
   border-radius: 1rem;
-  aspect-ratio: 1.5/1;
+  width: 100%;
+  height: 200px;
   object-fit: cover;
-  scale: 100%;
+  opacity: 0.9;
+  transition: all 1s;
+  filter: saturate(1);
+  transform: scale(1);
 }
 
 .slide img:hover {
   filter: saturate(2);
+  transform: scale(1.1);
   opacity: 1;
-  scale: 110%;
 }
 
 .slide img {
