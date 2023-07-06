@@ -17,9 +17,6 @@ export default {
     };
   },
   methods: {
-    //   getImage(path) {
-    //       return this.base_API + path;
-    //     }
     getRestaurants(type) {
       console.log(type);
       const url = this.base_API + "api/types/" + type
@@ -42,16 +39,6 @@ export default {
       .then((response) => {
         console.log(response);
         this.types = response.data.results;
-        //  if (response.data.success) {
-        //   this.types = response.data.results;
-        //  } else {
-        //    this.$router.push({
-        //     name: "NotFound",
-        //     params: { pathMatch: this.$route.path.substring(1).split("/") },
-        //     query: this.$route.query,
-        //     hash: this.$route.hash,
-        //   });
-        // }
       })
       .catch((error) => {
         console.log(error);
