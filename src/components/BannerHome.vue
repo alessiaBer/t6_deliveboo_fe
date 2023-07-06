@@ -7,8 +7,6 @@ export default {
     SlideBanner
   },
 
-  data() {},
-
 };
 </script>
 

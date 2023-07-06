@@ -64,7 +64,6 @@ export default {
   },
   methods: {
     getRestaurants(type) {
-      console.log(type);
       const url = this.base_API + "api/types/" + type;
       axios
         .get(url)
@@ -79,7 +78,6 @@ export default {
   },
   mounted() {
     const url = this.base_API + "api/types";
-    console.log(url);
     axios
       .get(url)
       .then((response) => {
@@ -164,7 +162,7 @@ export default {
           </div>
         </div>
 
-        <div class="row row-cols-1 row-cols-lg-2" v-if="restaurants != []">
+        <div class="row row-cols-1 row-cols-lg-2" v-if="restaurants">
           <div class="g-3" v-for="restaurant in restaurants">
             <div class="card">
               <img
