@@ -96,6 +96,7 @@ export default {
 
 <template>
   <BannerHome></BannerHome>
+
   <section class="aboutme">
     <div class="container my-5">
       <div class="container">
@@ -174,6 +175,12 @@ export default {
               <div class="card-body d-flex justify-content-between">
                 <h4 class="card-title">{{ restaurant.name }}</h4>
               </div>
+              <router-link :to="{
+                  name: 'single-restaurant',
+                  params: { slug: restaurant.slug },}"
+                class="nav-link">
+                More info
+              </router-link>
             </div>
           </div>
         </div>
