@@ -7,9 +7,6 @@ export default {
     data() {
         return {
             store
-           /* api: "127.0.0.1:8000/api/restaurants/",
-           restaurant: null,
-           plates: [] */
         }
     },
     mounted() {

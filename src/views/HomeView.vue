@@ -113,7 +113,7 @@ export default {
           class="form-select w-25 my-5"
           name=""
           id=""
-          @click="getRestaurants(selectedType)"
+          @change="getRestaurants(selectedType)"
           v-model="selectedType"
         >
           <option value="">Select Type</option>
