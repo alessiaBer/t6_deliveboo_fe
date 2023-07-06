@@ -164,7 +164,7 @@ export default {
 
 <style lang="scss" scoped>
 .slider {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .slide {

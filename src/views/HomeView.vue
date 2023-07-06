@@ -1,54 +1,54 @@
 <script>
 import axios from 'axios';
-import SlideBanner from "../components/SlideBanner.vue";
+
+import BannerHome from '../components/BannerHome.vue';
 
 export default {
-  name: "HomeView",
-  components: {
-    SlideBanner
-  },
-  data() {
-    return {
-      types: [],
-      base_API: "http://127.0.0.1:8000/",
-      error: null,
-      restaurants: [],
-      selectedType: "",
-    };
-  },
-  methods: {
-    getRestaurants(type) {
-      console.log(type);
-      const url = this.base_API + "api/types/" + type
-      axios
-        .get(url)
-        .then((response) => {
-          this.restaurants = response.data.result.restaurants
+    name: "HomeView",
+    components: { BannerHome },
+    data() {
+        return {
+            types: [],
+            base_API: "http://127.0.0.1:8000/",
+            error: null,
+            restaurants: [],
+            selectedType: "",
+        };
+    },
+    methods: {
+        getRestaurants(type) {
+            console.log(type);
+            const url = this.base_API + "api/types/" + type;
+            axios
+                .get(url)
+                .then((response) => {
+                this.restaurants = response.data.result.restaurants;
+            })
+                .catch((error) => {
+                console.log(error);
+                this.error = error.message;
+            });
+        }
+    },
+    mounted() {
+        const url = this.base_API + "api/types";
+        console.log(url);
+        axios
+            .get(url)
+            .then((response) => {
+            console.log(response);
+            this.types = response.data.results;
         })
-        .catch((error) => {
-          console.log(error);
-          this.error = error.message;
-        })
-    }
-  },
-  mounted() {
-    const url = this.base_API + "api/types";
-    console.log(url);
-    axios
-      .get(url)
-      .then((response) => {
-        console.log(response);
-        this.types = response.data.results;
-      })
-      .catch((error) => {
-        console.log(error);
-        this.error = error.message;
-      });
-  },
+            .catch((error) => {
+            console.log(error);
+            this.error = error.message;
+        });
+    },
 };
 </script>
 
 <template>
+  <BannerHome></BannerHome>
   <section class="aboutme">
     <div class="container my-5">
       <h2>Home</h2>
@@ -71,7 +71,7 @@ export default {
         </div>
       </div>
     </div>
-    <SlideBanner></SlideBanner>
+    
   </section>
 </template>
 
