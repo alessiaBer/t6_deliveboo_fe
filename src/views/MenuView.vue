@@ -71,7 +71,7 @@ export default {
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .jumbo {
   background-size: cover;
   background-position: center;
