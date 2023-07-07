@@ -5,7 +5,7 @@ export default {
 
   data(){
     return{
-      register_url : "http://127.0.0.1:8000/register",
+      login_url : "http://127.0.0.1:8000/login",
     }
   }
 };
@@ -43,8 +43,8 @@ export default {
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link links" target="_blank" :href="this.register_url"
-              >Register</a>
+            <a class="nav-link links" target="_blank" :href="this.login_url"
+              >Login</a>
           </li>
         </ul>
       </div>
