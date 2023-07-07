@@ -21,15 +21,10 @@ export default {
 };
 </script>
 <template>
-  <div
-    class="jumbo p-5 mb-4 bg-body-tertiary rounded-3"
-    v-if="store.restaurant"
-    :style="{
-      backgroundImage: `url(${
-        store.base_api + 'storage/' + store.restaurant.image_url
+  <div class="jumbo p-5 mb-4 bg-body-tertiary rounded-3" v-if="store.restaurant" :style="{
+    backgroundImage: `url(${store.base_api + 'storage/' + store.restaurant.image_url
       })`,
-    }"
-  >
+  }">
     <div class="container-fluid py-5">
       <div class="cardJumbo">
         <h1 class="display-5 fw-bold">{{ store.restaurant.name }}</h1>
@@ -53,11 +48,7 @@ export default {
         <div class="card mb-3">
           <div class="row g-0">
             <div class="col-md-4">
-              <img
-                :src="plate.image_url"
-                class="img-fluid rounded-start"
-                alt=""
-              />
+              <img :src="plate.image_url" class="img-fluid rounded-start" alt="" />
             </div>
             <div class="col-md-8">
               <div class="card-body">
@@ -67,10 +58,7 @@ export default {
                 </p>
                 <div class="d-flex justify-content-between">
                   <div class="text-body-secondary">{{ plate.price }}€</div>
-                  <button
-                    class="btn btn-primary"
-                    @click="store.addToCart(plate)"
-                  >
+                  <button class="btn btn-primary" @click="store.addToCart(plate)">
                     Add to cart
                   </button>
                 </div>
@@ -81,9 +69,6 @@ export default {
       </div>
     </div>
   </div>
-  <button class="btn btn-danger" @click="store.calcTotPrice()">
-    Calcola somma carrello
-  </button>
   <Cart />
 </template>
 
@@ -92,6 +77,7 @@ export default {
   background-size: cover;
   background-position: center;
   color: rgb(253, 253, 253);
+
   .cardJumbo {
     background-color: rgba($color: #000000, $alpha: 0.7);
     color: white;
@@ -103,6 +89,7 @@ export default {
 
 .card {
   height: 220px;
+
   img {
     object-fit: cover;
     height: 220px;
