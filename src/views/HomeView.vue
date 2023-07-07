@@ -150,12 +150,14 @@ export default {
                 <div class="col" v-for="(card, index) in cardsOC" :key="index">
                   <a href="#" class="">
                     <div class="card text-bg-dark my_card">
-                      <img :src="card.imageUrl" class="card-img" alt="veggie" />
-                      <div class="card-img-overlay d-flex justify-content-center">
-                        <h5 class="card-title align-self-center">
-                          {{ card.title }}
-                        </h5>
-                      </div>
+                      <label class="my_label" :for="'tipo' + index">
+                        <img :src="card.imageUrl" class="card-img" alt="veggie" />
+                        <div class="card-img-overlay d-flex justify-content-center">
+                          <h5 class="card-title align-self-center">
+                            {{ card.title }}
+                          </h5>
+                        </div>
+                      </label>
                     </div>
                   </a>
                 </div>
@@ -164,12 +166,13 @@ export default {
             <div class="container my_check">
               <div class="row row-cols-3 g-4 cards">
 
-                <div class="col form-check" v-for="tipo in types" :key="tipo.id">
+                <div class="col form-check" v-for="(tipo, index) in types" :key="tipo.id">
 
                   <div class="card text-bg-dark">
                     <label class="form-check-label p-5">
                       {{ tipo.name }}
-                      <input class="form-check-input" v-model="selectedTypes" type="checkbox" :value="tipo.slug" />
+                      <input class="form-check-input" :id="'tipo' + index" v-model="selectedTypes" type="checkbox"
+                        :value="tipo.slug" />
                     </label>
                   </div>
 
@@ -201,8 +204,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.cards .card {
+.cards .card .my_label {
   height: 150px;
+
+  cursor: pointer;
 
   img {
     height: 100%;
@@ -214,11 +219,12 @@ export default {
   margin-top: 10%;
 }
 
-.my_offcanvas{
+.my_offcanvas {
   position: relative;
 }
-.my_check{
-  opacity: 0;
+
+.my_check {
+  display: none;
   margin-top: -32.7rem;
   z-index: 10;
 }
