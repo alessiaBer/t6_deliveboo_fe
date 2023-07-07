@@ -13,6 +13,7 @@ export default {
       error: null,
       restaurants: [],
       selectedTypes: [],
+      selectedCardIndexes: [],
       cardsOC: [
         {
           title: "Chinese",
@@ -85,6 +86,17 @@ export default {
           this.error = error.message;
         });
     },
+    isSelected(index) {
+      return this.selectedCardIndexes.includes(index);
+    },
+    toggleSelection(index) {
+      const selectedIndex = this.selectedCardIndexes.indexOf(index);
+      if (selectedIndex > -1) {
+        this.selectedCardIndexes.splice(selectedIndex, 1);
+      } else {
+        this.selectedCardIndexes.push(index);
+      }
+    },
 
 
   },
@@ -149,7 +161,8 @@ export default {
 
                 <div class="col" v-for="(card, index) in cardsOC" :key="index">
                   <a href="#" class="">
-                    <div class="card text-bg-dark my_card">
+                    <div class="card text-bg-dark my_card" :class="{ 'selected': isSelected(index) }"
+                      @click="toggleSelection(index)">
                       <label class="my_label" :for="'tipo' + index">
                         <img :src="card.imageUrl" class="card-img" alt="veggie" />
                         <div class="card-img-overlay d-flex justify-content-center">
@@ -204,9 +217,13 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.my_card.selected {
+  /* Aggiungi lo stile desiderato per il div selezionato */
+  border: 5px solid rgba(1, 1, 5, 0.174);
+}
+
 .cards .card .my_label {
   height: 150px;
-
   cursor: pointer;
 
   img {
