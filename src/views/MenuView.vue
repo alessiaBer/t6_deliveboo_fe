@@ -1,16 +1,19 @@
 <script>
 import { RouterLink } from "vue-router";
 import { store } from "../store";
+import Cart from "../components/Cart.vue";
 
 export default {
   name: "MenuView",
-  components: { RouterLink },
+  components: { RouterLink, Cart },
 
   data() {
     return {
       store,
     };
   },
+
+  methods: {},
 
   mounted() {
     store.displayMenu(this.$route.params.slug);
@@ -21,7 +24,11 @@ export default {
   <div
     class="jumbo p-5 mb-4 bg-body-tertiary rounded-3"
     v-if="store.restaurant"
-    :style="{ backgroundImage: `url(${store.api + 'storage/' + store.restaurant.image_url})` }"
+    :style="{
+      backgroundImage: `url(${
+        store.base_api + 'storage/' + store.restaurant.image_url
+      })`,
+    }"
   >
     <div class="container-fluid py-5">
       <div class="cardJumbo">
@@ -59,8 +66,13 @@ export default {
                   {{ plate.description }}
                 </p>
                 <div class="d-flex justify-content-between">
-                    <div class="text-body-secondary">{{ plate.price }}€</div>
-                    <button class="btn btn-primary">+</button>
+                  <div class="text-body-secondary">{{ plate.price }}€</div>
+                  <button
+                    class="btn btn-primary"
+                    @click="store.addToCart(plate)"
+                  >
+                    Add to cart
+                  </button>
                 </div>
               </div>
             </div>
@@ -69,6 +81,10 @@ export default {
       </div>
     </div>
   </div>
+  <button class="btn btn-danger" @click="store.calcTotPrice()">
+    Calcola somma carrello
+  </button>
+  <Cart />
 </template>
 
 <style lang="scss" scoped>
@@ -86,7 +102,7 @@ export default {
 }
 
 .card {
-    height: 220px;
+  height: 220px;
   img {
     object-fit: cover;
     height: 220px;
