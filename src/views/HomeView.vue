@@ -12,8 +12,7 @@ export default {
       base_API: "http://127.0.0.1:8000/",
       error: null,
       restaurants: [],
-      selectedType: [],
-      /* selectedTypes: [] */
+      selectedTypes: [],
       cardsOC: [
         {
           title: "Vegetarian",
@@ -71,11 +70,13 @@ export default {
         .then((response) => {
           this.restaurants = response.data.results;
 
-          /* if(this.selectedTypes.length > 0){
+          if (this.selectedTypes.length > 0) {
             this.restaurants = this.restaurants.filter((restaurant) => {
-              this.selectedTypes.includes(restaurant.type)
-            })
-          } */
+              return restaurant.types.some((type) => {
+                return this.selectedTypes.includes(type.slug);
+              });
+            });
+          }
 
           console.log(this.restaurants);
         })
@@ -84,6 +85,8 @@ export default {
           this.error = error.message;
         });
     },
+
+
   },
   mounted() {
     const url = this.base_API + "api/types";
@@ -100,6 +103,14 @@ export default {
 
     this.getRestaurants();
   },
+  watch: {
+    selectedTypes: {
+      handler() {
+        this.getRestaurants();
+      },
+      deep: true
+    }
+  },
 };
 </script>
 
@@ -115,19 +126,13 @@ export default {
           Types
         </button>
 
-        <!-- <select class="form-select w-25 my-5" name="" id="" @change="getRestaurants(selectedType)" v-model="selectedType">
-          <option value="">Select Type</option>
-
-          <option :value="tipo.slug" v-for="tipo in types">
-            {{ tipo.name }}
-          </option>
-        </select> -->
-
         <div class="form-check col" v-for="tipo in types" :key="tipo.id">
-          <label class="form-check-label"> {{ tipo.name }}
-            <input class="form-check-input" v-model="selectedType" type="checkbox" :value="tipo.slug" />
+          <label class="form-check-label">
+            {{ tipo.name }}
+            <input class="form-check-input" v-model="selectedTypes" type="checkbox" :value="tipo.slug" />
           </label>
         </div>
+
 
 
         <div class="offcanvas offcanvas-top h-75 m-5 rounded" tabindex="-1" id="offcanvasTop"
@@ -158,7 +163,7 @@ export default {
           </div>
         </div>
 
-        <div class="row row-cols-1 row-cols-lg-2" v-if="restaurants">
+        <div class="row row-cols-1 row-cols-lg-2" v-if="restaurants.length > 0">
           <div class="g-3" v-for="restaurant in restaurants">
             <div class="card">
               <img class="card-img-top" :src="base_API + 'storage/' + restaurant.image_url" alt="Card image cap" />
