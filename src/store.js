@@ -34,6 +34,7 @@ export const store = reactive({
 
     localStorage.setItem("cart", JSON.stringify(this.cart));
     localStorage.setItem("prices", JSON.stringify(this.prices));
+    this.calcTotPrice();
   },
 
   

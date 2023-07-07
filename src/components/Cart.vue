@@ -43,7 +43,7 @@ mounted() {
   </div>
 
   <div
-    class="offcanvas offcanvas-end w-50"
+    class="offcanvas offcanvas-end w-25 rounded m-5"
     tabindex="-1"
     id="offcanvasExample"
     aria-labelledby="offcanvasExampleLabel"
