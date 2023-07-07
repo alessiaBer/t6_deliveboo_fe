@@ -12,7 +12,8 @@ export default {
       base_API: "http://127.0.0.1:8000/",
       error: null,
       restaurants: [],
-      selectedType: "",
+      selectedType: [],
+      /* selectedTypes: [] */
       cardsOC: [
         {
           title: "Vegetarian",
@@ -63,12 +64,20 @@ export default {
     };
   },
   methods: {
-    getRestaurants(type) {
-      const url = this.base_API + "api/types/" + type;
+    getRestaurants() {
+      const url = this.base_API + "api/restaurants";
       axios
         .get(url)
         .then((response) => {
-          this.restaurants = response.data.result.restaurants;
+          this.restaurants = response.data.results;
+
+          /* if(this.selectedTypes.length > 0){
+            this.restaurants = this.restaurants.filter((restaurant) => {
+              this.selectedTypes.includes(restaurant.type)
+            })
+          } */
+
+          console.log(this.restaurants);
         })
         .catch((error) => {
           console.log(error);
@@ -88,6 +97,8 @@ export default {
         console.log(error);
         this.error = error.message;
       });
+
+    this.getRestaurants();
   },
 };
 </script>
@@ -99,46 +110,33 @@ export default {
     <div class="container my-5">
       <div class="container">
         <h2>Select the restaurant Type</h2>
-        <button
-          class="btn btn-primary"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasTop"
-          aria-controls="offcanvasTop"
-        >
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+          aria-controls="offcanvasTop">
           Types
         </button>
 
-        <select
-          class="form-select w-25 my-5"
-          name=""
-          id=""
-          @change="getRestaurants(selectedType)"
-          v-model="selectedType"
-        >
+        <!-- <select class="form-select w-25 my-5" name="" id="" @change="getRestaurants(selectedType)" v-model="selectedType">
           <option value="">Select Type</option>
 
           <option :value="tipo.slug" v-for="tipo in types">
             {{ tipo.name }}
           </option>
-        </select>
+        </select> -->
 
-        <div
-          class="offcanvas offcanvas-top"
-          tabindex="-1"
-          id="offcanvasTop"
-          aria-labelledby="offcanvasTopLabel"
-        >
+        <div class="form-check col" v-for="tipo in types" :key="tipo.id">
+          <label class="form-check-label"> {{ tipo.name }}
+            <input class="form-check-input" v-model="selectedType" type="checkbox" :value="tipo.slug" />
+          </label>
+        </div>
+
+
+        <div class="offcanvas offcanvas-top h-75 m-5 rounded" tabindex="-1" id="offcanvasTop"
+          aria-labelledby="offcanvasTopLabel">
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasTopLabel">
               Select your Type
             </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body">
             <div class="container">
@@ -147,9 +145,7 @@ export default {
                   <a href="#" class="">
                     <div class="card text-bg-dark">
                       <img :src="card.imageUrl" class="card-img" alt="veggie" />
-                      <div
-                        class="card-img-overlay d-flex justify-content-center"
-                      >
+                      <div class="card-img-overlay d-flex justify-content-center">
                         <h5 class="card-title align-self-center">
                           {{ card.title }}
                         </h5>
@@ -165,21 +161,14 @@ export default {
         <div class="row row-cols-1 row-cols-lg-2" v-if="restaurants">
           <div class="g-3" v-for="restaurant in restaurants">
             <div class="card">
-              <img
-                class="card-img-top"
-                :src="base_API + 'storage/' + restaurant.image_url"
-                alt="Card image cap"
-              />
+              <img class="card-img-top" :src="base_API + 'storage/' + restaurant.image_url" alt="Card image cap" />
               <div class="card-body d-flex justify-content-between">
                 <h4 class="card-title">{{ restaurant.name }}</h4>
               </div>
-              <router-link
-                :to="{
-                  name: 'single-restaurant',
-                  params: { slug: restaurant.slug },
-                }"
-                class="nav-link"
-              >
+              <router-link :to="{
+                name: 'single-restaurant',
+                params: { slug: restaurant.slug },
+              }" class="nav-link">
                 More info
               </router-link>
             </div>
@@ -193,11 +182,13 @@ export default {
 <style lang="scss" scoped>
 .cards .card {
   height: 150px;
+
   img {
     height: 100%;
     object-fit: cover;
   }
 }
+
 .aboutme {
   margin-top: 10%;
 }
