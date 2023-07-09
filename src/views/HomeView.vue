@@ -130,7 +130,7 @@ export default {
   <BannerHome></BannerHome>
 
   <section class="aboutme">
-    <div class="container my-5">
+    <div class="container">
       <div class="container">
         <h2>Select the restaurant Type</h2>
         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
@@ -197,18 +197,18 @@ export default {
 
         <div class="row row-cols-1 row-cols-lg-2" v-if="restaurants.length > 0">
           <div class="g-3" v-for="restaurant in restaurants">
-            <div class="card">
+            <div class="card restaurant_card">
               <img class="card-img-top" :src="base_API + 'storage/' + restaurant.image_url" alt="Card image cap" />
-              <div class="card-body d-flex justify-content-between">
+              <div class="card-body d-flex justify-content-between align-items-center">
                 <h4 class="card-title">{{ restaurant.name }}</h4>
+                <router-link :to="{
+                  name: 'single-restaurant',
+                  params: { slug: restaurant.slug },
+                }" class="btn btn-outline-dark">
+                  More info
+                </router-link>
               </div>
               <!-- resettare sfondo scuretto -->
-              <router-link :to="{
-                name: 'single-restaurant',
-                params: { slug: restaurant.slug },
-              }" class="nav-link">
-                More info
-              </router-link>
             </div>
           </div>
         </div>
@@ -218,6 +218,9 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+h4{
+  margin-bottom: 0;
+}
 .my_card.selected {
   /* Aggiungi lo stile desiderato per il div selezionato */
   border: 5px solid rgba(1, 1, 5, 0.174);
@@ -233,10 +236,6 @@ export default {
   }
 }
 
-.aboutme {
-  margin-top: 10%;
-}
-
 .my_offcanvas {
   position: relative;
 }
@@ -245,5 +244,12 @@ export default {
   display: none;
   margin-top: -32.7rem;
   z-index: 10;
+}
+
+.restaurant_card{
+  img{
+    object-fit: cover;
+    height: 330px;
+  }
 }
 </style>

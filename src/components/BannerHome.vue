@@ -11,21 +11,20 @@ export default {
 </script>
 
 <template>
-  <div class="jumbotron">
-    <div class="movedown">
-      <SlideBanner></SlideBanner>
+  <div class="">
+    <div class="jumbotron">
+      <img src="../../public/assets/imgs/banner2.jpg" alt="">
     </div>
   </div>
+  <h2 class="mt-5 container">Don't miss out this latest entries!
+  </h2>
+  <SlideBanner></SlideBanner>
 </template>
 
 <style lang="scss" scoped>
   .jumbotron{
-    background-image: url('../../public/assets/imgs/deliveroobanner1.png');
-    background-size: cover;
+    img{
+      width: 100%;
+    }
   }
-  .movedown{
-    margin-top: 10.2%;
-    margin-bottom: -11.6%;
-  }
-  
 </style>
