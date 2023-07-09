@@ -3,7 +3,7 @@ import WelcomeView from "./views/WelcomeView.vue";
 import HomeView from "./views/HomeView.vue";
 import MenuView from "./views/MenuView.vue";
 import NotFound from "./views/NotFound.vue";
-// import Cart from "./views/Cart.vue";
+import OrderView from "./views/OrderView.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -13,11 +13,11 @@ const router = createRouter({
       name: "404NotFound",
       component: NotFound,
     },
-    // {
-    //   path: "/cart",
-    //   name: "Cart",
-    //   component: Cart,
-    // },
+    {
+      path: "/order",
+      name: "order",
+      component: OrderView,
+    },
     {
       path: "/",
       name: "welcome",

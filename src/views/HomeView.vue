@@ -202,6 +202,7 @@ export default {
               <div class="card-body d-flex justify-content-between">
                 <h4 class="card-title">{{ restaurant.name }}</h4>
               </div>
+              <!-- resettare sfondo scuretto -->
               <router-link :to="{
                 name: 'single-restaurant',
                 params: { slug: restaurant.slug },
