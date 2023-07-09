@@ -73,6 +73,10 @@ mounted() {
           <button class="btn btn-danger" @click="store.resetCart()">
             Reset Cart
           </button>
+          
+          <router-link class="btn btn-primary" :to="{name: 'order'}">
+            Checkout
+          </router-link>
         </div>
       </div>
     </div>
