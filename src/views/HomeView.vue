@@ -147,17 +147,17 @@ export default {
 
 
 
-        <div class="offcanvas offcanvas-top h-75 m-5 rounded" tabindex="-1" id="offcanvasTop"
+        <div class="offcanvas offcanvas-start m-2 rounded" data-bs-scroll="true" tabindex="-1" id="offcanvasTop"
           aria-labelledby="offcanvasTopLabel">
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasTopLabel">
-              Select your Type
+              Filter for your favorite types!
             </h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body my_offcanvas">
             <div class="container">
-              <div class="row row-cols-3 g-4 cards">
+              <div class="row row-cols-1 g-4 cards">
 
                 <div class="col" v-for="(card, index) in cardsOC" :key="index">
                   <a href="#" class="">

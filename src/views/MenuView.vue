@@ -21,7 +21,7 @@ export default {
 };
 </script>
 <template>
-  <div class="jumbo p-5 mb-4 bg-body-tertiary rounded-3" v-if="store.restaurant" :style="{
+  <div class="jumbo p-5 mb-4 bg-body-tertiary" v-if="store.restaurant" :style="{
     backgroundImage: `url(${store.base_api + 'storage/' + store.restaurant.image_url
       })`,
   }">

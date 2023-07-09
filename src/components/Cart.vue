@@ -11,13 +11,13 @@ export default {
     };
   },
   methods: {
-  toggleShake() {
-    this.shake = !this.shake;
+    toggleShake() {
+      this.shake = !this.shake;
+    },
   },
-},
-mounted() {
-  store.calcTotPrice();
-}
+  mounted() {
+    store.calcTotPrice();
+  },
 };
 </script>
 <template>
@@ -25,11 +25,10 @@ mounted() {
     id="button"
     @mouseenter="toggleShake"
     @mouseleave="toggleShake"
-    class="text-center"
     data-bs-toggle="offcanvas"
-    href="#offcanvasExample"
+    data-bs-target="#offcanvasScrolling"
     role="button"
-    aria-controls="offcanvasExample"
+    aria-controls="offcanvasScrolling"
   >
     <font-awesome-icon
       :icon="['fas', 'cart-shopping']"
@@ -43,13 +42,15 @@ mounted() {
   </div>
 
   <div
-    class="offcanvas offcanvas-end w-25 rounded m-5"
+    class="offcanvas offcanvas-end rounded m-2"
+    data-bs-scroll="true"
+    data-bs-backdrop="false"
     tabindex="-1"
-    id="offcanvasExample"
-    aria-labelledby="offcanvasExampleLabel"
+    id="offcanvasScrolling"
+    aria-labelledby="offcanvasScrollingLabel"
   >
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+      <h5 class="offcanvas-title" id="offcanvasScrolling">Offcanvas</h5>
       <button
         type="button"
         class="btn-close"
@@ -57,6 +58,7 @@ mounted() {
         aria-label="Close"
       ></button>
     </div>
+
     <div class="offcanvas-body">
       <div class="container" id="body">
         <div class="row">
@@ -73,8 +75,8 @@ mounted() {
           <button class="btn btn-danger" @click="store.resetCart()">
             Reset Cart
           </button>
-          
-          <router-link class="btn btn-primary" :to="{name: 'order'}">
+
+          <router-link class="btn btn-primary" :to="{ name: 'order' }">
             Checkout
           </router-link>
         </div>
@@ -85,30 +87,20 @@ mounted() {
 
 <style scoped lang="scss">
 #button {
-  background-color: grey;
+  background-color: #161616;
   color: white;
-  box-shadow: 0 0 5px greenyellow;
-  padding: 0.5rem;
-  border-radius: 4px;
+  border-radius: 5px;
+  padding: 0.5rem 0.5rem 0.2rem 0.5rem;
   position: fixed;
   top: 150px;
   right: 20px;
   transition: all 0.3s;
   z-index: 15;
-  p {
-    font-size: 12px;
-    font-weight: 600;
-    margin: 0;
-  }
 }
 
 #button:hover {
   cursor: pointer;
-  background-color: green;
+  background-color: rgb(4, 180, 165);
   color: black;
-}
-
-#button:active {
-  background-color: #555;
 }
 </style>
