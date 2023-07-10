@@ -10,9 +10,9 @@ export default {
         <div class="footer-logo">Team#6/Boolean 2023</div>
       </div>
       <div class="card-container">
-        <div class="card">
+        <div class="my_card">
           <ul class="card-list">
-            <h3>Discover deliveroo</h3>
+            <h4>Discover deliveroo</h4>
             <li>Investors</li>
             <li>Restaurants</li>
             <li>Work with us</li>
@@ -21,23 +21,23 @@ export default {
             <li>Other</li>
           </ul>
         </div>
-        <div class="card">
+        <div class="my_card">
           <ul class="card-list">
-            <h3>Legal notices</h3>
+            <h4>Legal notices</h4>
             <li>Terms and conditions</li>
             <li>Privacy Policy</li>
             <li>Cookies</li>
           </ul>
         </div>
-        <div class="card">
+        <div class="my_card">
           <ul class="card-list">
-            <h3>Help</h3>
+            <h4>Help</h4>
             <li>Contacts</li>
             <li>FAQ</li>
             <li>Types of cuisine</li>
           </ul>
         </div>
-        <div class="card card-download">
+        <div class="my_card card-download">
           <h3>Take deliveroo with you!</h3>
           <div class="download-links">
             <div class="container-img">
@@ -83,18 +83,12 @@ export default {
   </footer>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .footer {
-  background-color: #161616;
+  background-color: #2e3333;
   color: white;
   padding: 20px 0;
 
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
 }
 
 .footer-content {
@@ -105,34 +99,33 @@ export default {
 
 
 .card-container {
-  background-color: #161616;
+  background-color: #2e3333;
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
 
-.card {
+.my_card {
   width: 300px;
   height: 300px;
-  background-color: darkslategray;
-  border-radius: 4px;
+  border-radius: 3px;
+  background-color: #ffffff23;
   padding: 10px;
   box-sizing: border-box;
   margin-right: 20px;
-  color: white;
   list-style-type: none;
 }
 
-.card .card-list {
+.my_card .card-list {
   list-style-type: none;
   padding: 0;
 }
 
-.card .card-list li {
+.my_card .card-list li {
   margin-bottom: 10px;
 }
 
-.card .card-list li:hover {
+.my_card .card-list li:hover {
   color: #00cdbc;
   cursor: pointer;
 }
@@ -149,7 +142,6 @@ export default {
 
 
 .social-media {
-  background-color: #161616;
   margin-top: 20px;
   text-align: center;
 }
