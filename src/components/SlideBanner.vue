@@ -150,12 +150,12 @@ export default {
 </script>
 
 <template>
-  <section class="slider">
+  <section class="slider d-none d-xl-block">
     <div class="slide">
       <div v-for="row in slideData" :key="row.id" class="row row-cols-2 row-cols-md-3 row-cols-xl-6 mb-1">
         <div v-for="image in row.images" :key="image.id" href="#" class="col p-1">
           <div class="image-container">
-            <img :src="image.src" :alt="image.alt" class="slide-image" />
+            <img :src="image.src" :alt="image.alt" class="slide-image shadow" />
           </div>
         </div>
       </div>
@@ -187,12 +187,10 @@ export default {
 }
 
 .slide img {
-  border: 1px solid black;
   box-sizing: border-box;
   transition: opacity 0.2s;
-  border-radius: 1rem;
   width: 100%;
-  height: 200px;
+  height: 120px;
   object-fit: cover;
   opacity: 0.9;
   transition: all 1s;
