@@ -129,26 +129,19 @@ export default {
 </script>
 
 <template>
+  
   <BannerHome></BannerHome>
 
   <section class="aboutme">
-    <div class="container">
-      <div class="container">
-        <h2>Select the restaurant Type</h2>
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
-          aria-controls="offcanvasTop">
-          Types
-        </button>
+    <div class="container my-5">
 
-        <!-- <div class="form-check col" v-for="tipo in types" :key="tipo.id">
-          <label class="form-check-label">
-            {{ tipo.name }}
-            <input class="form-check-input" v-model="selectedTypes" type="checkbox" :value="tipo.slug" />
-          </label>
-        </div> -->
-
-
-
+        <div class="d-flex">
+          <h2 class="mb-0">Select the restaurant Type -></h2>
+          <button class="btn btn-primary ms-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+            aria-controls="offcanvasTop">
+            Types
+          </button>
+        </div>
         <div class="offcanvas offcanvas-start m-2 rounded" data-bs-scroll="true" tabindex="-1" id="offcanvasTop"
           aria-labelledby="offcanvasTopLabel">
           <div class="offcanvas-header">
@@ -214,7 +207,6 @@ export default {
             </div>
           </div>
         </div>
-      </div>
     </div>
   </section>
   <WorkWithUs />
