@@ -19,8 +19,8 @@ export default {
         <div class="col">
           <div class="overlay">
             <h1 class="card-title">The plates you love,</h1>
-            <h1 class="card-title">from the restaurants you love,</h1>
-            <h1 class="card-title">delivered to your doorstep.</h1>
+            <h1 class="card-title text_blue">From the restaurants you love,</h1>
+            <h1 class="card-title">Delivered to your doorstep.</h1>
 
             <div class="row mt-4">
               <div class="col d-flex">
@@ -29,7 +29,8 @@ export default {
                 </p>
               </div>
               <div class="col ">
-                <router-link :to="{ name: 'home' }" class="card-link btn btn_deliveboo">HOME</router-link>
+                <router-link :to="{ name: 'home' }"
+                  class="card-link btn rounded-0 shadow text-white btn_deliveboo">HOME</router-link>
               </div>
             </div>
 
@@ -40,7 +41,8 @@ export default {
                 </p>
               </div>
               <div class="col ">
-                <a href="http://127.0.0.1:8000/register" target="_blank" class="card-link btn btn_deliveboo">REGISTER</a>
+                <a href="http://127.0.0.1:8000/register" target="_blank"
+                  class="card-link btn rounded-0 shadow text-white btn_deliveboo">REGISTER</a>
               </div>
             </div>
           </div>
@@ -55,12 +57,13 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-*{
-  p{
+* {
+  p {
     margin: 0 !important;
     padding: 0 !important;
   }
 }
+
 .carousel-bg {
   position: absolute;
   top: 0;
@@ -77,7 +80,7 @@ export default {
   width: 40%;
   height: 100%;
   color: white;
-  background-color: rgba($color: #161616, $alpha: 0.5);
+  background-color: rgba($color: #161616, $alpha: 0.4);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -91,5 +94,13 @@ export default {
 
 .btn_deliveboo {
   background-color: #00CDBC;
+}
+
+.text_blue {
+  color: #00CDBC;
+}
+
+.btn_deliveboo:hover {
+  color: rgb(33, 37, 41) !important;
 }
 </style>

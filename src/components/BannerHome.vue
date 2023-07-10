@@ -15,7 +15,7 @@ export default {
       <div class="container">
         <div class="row my_banner align-items-center">
           <div>
-            <h1>DELIVEBOO</h1>
+            <h1 class="text-dark">DELIVEBOO</h1>
             <h3>Taste without borders</h3>
             <h3>Explore the world of flavours with us!</h3>
             <a href="" class="btn my_button py-2 px-5 bg-dark rounded-0 shadow">Explore</a>
@@ -29,21 +29,30 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.my_banner{
+.my_banner {
   color: white;
-  h1{
+
+  h1 {
     font-size: 5rem;
   }
-  h3{
+
+  h3 {
     font-size: 2.5rem;
   }
-  .my_button{
+
+  .my_button {
     width: fit-content;
     margin-top: 1.5rem;
     font-size: 1.5rem;
     color: #00CDBC;
   }
+
+  .my_button:hover {
+    color: rgb(33, 37, 41) !important;
+    background-color: white !important;
+  }
 }
+
 .parallax-container {
   position: relative;
   height: 700px;
@@ -59,11 +68,12 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  .container{
+
+  .container {
     height: 100%;
-    .row{
-      height:100%;
+
+    .row {
+      height: 100%;
     }
   }
-}
-</style>
+}</style>

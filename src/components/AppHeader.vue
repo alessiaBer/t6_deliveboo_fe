@@ -3,9 +3,9 @@
 export default {
   name: "AppHeader",
 
-  data(){
-    return{
-      login_url : "http://127.0.0.1:8000/login",
+  data() {
+    return {
+      login_url: "http://127.0.0.1:8000/login",
     }
   }
 };
@@ -13,42 +13,32 @@ export default {
 
 <template>
   <header>
-    <nav class="navbar navbar-expand-lg px-4" data-bs-theme="dark">
-      <div>
-        <a class="navbar-brand" href="#"><img id="logo" src="../../assets/imgs/deliveroo.png" alt=""></a>
-      </div>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg px-4" data-bs-theme="dark">
+        <div>
+          <a class="navbar-brand" href="#"><img id="logo" src="../../assets/imgs/deliveroo.png" alt=""></a>
+        </div>
 
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <router-link class="nav-link links" :to="{ name: 'welcome' }"
-              >Welcome</router-link
-            >
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link links" :to="{ name: 'home' }"
-              >Home</router-link
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link links" target="_blank" :href="this.login_url"
-              >Login</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li>
+              <router-link class="nav-link nav_item" :to="{ name: 'welcome' }">Welcome</router-link>
+            </li>
+            <li>
+              <router-link class="nav-link nav_item" :to="{ name: 'home' }">Home</router-link>
+            </li>
+            <li>
+              <a class="nav-link nav_item" target="_blank" :href="this.login_url">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
   </header>
 </template>
 
@@ -61,7 +51,15 @@ header {
   color: white;
 }
 
-#logo{
+#logo {
   height: 80px;
+}
+
+.nav_item {
+  color: white !important;
+}
+
+.nav_item:hover {
+  color: #00CDBC !important;
 }
 </style>
