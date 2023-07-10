@@ -145,7 +145,7 @@ export default {
         </button>
       </div>
 
-      <div class="offcanvas offcanvas-start m-2 rounded" data-bs-scroll="true" tabindex="-1" id="offcanvasTop"
+      <div class="offcanvas offcanvas-start m-2" data-bs-scroll="true" tabindex="-1" id="offcanvasTop"
         aria-labelledby="offcanvasTopLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title text-uppercase" id="offcanvasTopLabel">
@@ -159,7 +159,7 @@ export default {
 
               <div class="col" v-for="(card, index) in cardsOC" :key="index">
                 <a href="#" class="">
-                  <div class="card text-bg-dark my_card rounded-0 shadow" :class="{ 'selected': isSelected(index) }"
+                  <div class="card text-bg-dark my_card rounded-0 border-0 shadow" :class="{ 'selected': isSelected(index) }"
                     @click="toggleSelection(index)">
                     <label class="my_label" :for="'tipo' + index">
                       <img :src="card.imageUrl" class="card-img rounded-0" alt="veggie" />
@@ -235,8 +235,7 @@ h4 {
 }
 
 .my_card.selected {
-  /* Aggiungi lo stile desiderato per il div selezionato */
-  border: 5px solid rgba(13, 150, 219, 0.937);
+  border: 5px solid #00CDBC !important;
 }
 
 .my_card h5 {
