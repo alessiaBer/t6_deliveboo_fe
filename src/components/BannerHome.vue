@@ -15,16 +15,16 @@ export default {
       <div class="container">
         <div class="row my_banner align-items-center">
           <div>
-            <h1>DELIVEROO</h1>
+            <h1>DELIVEBOO</h1>
             <h3>Taste without borders</h3>
             <h3>Explore the world of flavours with us!</h3>
-            <a href="" class="btn btn-light my_button">Explore</a>
+            <a href="" class="btn my_button py-2 px-5 bg-dark rounded-0 shadow">Explore</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <h2 class="mt-5 container">Don't miss out on the latest entries!</h2>
+  <h2 class="mt-5 container text-center text-uppercase d-none d-xl-block">Don't miss out on the latest entries!</h2>
   <SlideBanner></SlideBanner>
 </template>
 
@@ -39,9 +39,9 @@ export default {
   }
   .my_button{
     width: fit-content;
-    margin-left: 1rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     font-size: 1.5rem;
+    color: #00CDBC;
   }
 }
 .parallax-container {
