@@ -2,10 +2,11 @@
 import axios from "axios";
 
 import BannerHome from "../components/BannerHome.vue";
+import FooterHome from "../components/FooterHome.vue";
 
 export default {
   name: "HomeView",
-  components: { BannerHome },
+  components: { BannerHome, FooterHome },
   data() {
     return {
       types: [],
@@ -215,12 +216,14 @@ export default {
       </div>
     </div>
   </section>
+  <FooterHome />
 </template>
 
 <style lang="scss" scoped>
-h4{
+h4 {
   margin-bottom: 0;
 }
+
 .my_card.selected {
   /* Aggiungi lo stile desiderato per il div selezionato */
   border: 5px solid rgba(13, 150, 219, 0.937);
@@ -246,8 +249,8 @@ h4{
   z-index: 10;
 }
 
-.restaurant_card{
-  img{
+.restaurant_card {
+  img {
     object-fit: cover;
     height: 330px;
   }
