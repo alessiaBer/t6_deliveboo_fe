@@ -129,84 +129,95 @@ export default {
 </script>
 
 <template>
-  
   <BannerHome></BannerHome>
 
   <section class="aboutme">
     <div class="container my-5">
 
-        <div class="d-flex">
-          <h2 class="mb-0">Select the restaurant Type -></h2>
-          <button class="btn btn-primary ms-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
-            aria-controls="offcanvasTop">
-            Types
-          </button>
+      <div class="text-center">
+        <h2 class="text-uppercase">Select the restaurant Type</h2>
+      </div>
+
+      <div class="container w-25">
+        <button class="btn bg_blue text-white p-3 w-100 rounded-0 shadow mt-2 text-uppercase" type="button"
+          data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+          Types
+        </button>
+      </div>
+
+      <div class="offcanvas offcanvas-start m-2 rounded" data-bs-scroll="true" tabindex="-1" id="offcanvasTop"
+        aria-labelledby="offcanvasTopLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title text-uppercase" id="offcanvasTopLabel">
+            Filter for your favorite types!
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas offcanvas-start m-2 rounded" data-bs-scroll="true" tabindex="-1" id="offcanvasTop"
-          aria-labelledby="offcanvasTopLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasTopLabel">
-              Filter for your favorite types!
-            </h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body my_offcanvas">
-            <div class="container">
-              <div class="row row-cols-1 g-4 cards">
+        <div class="offcanvas-body my_offcanvas">
+          <div class="container">
+            <div class="row row-cols-1 g-4 cards">
 
-                <div class="col" v-for="(card, index) in cardsOC" :key="index">
-                  <a href="#" class="">
-                    <div class="card text-bg-dark my_card" :class="{ 'selected': isSelected(index) }"
-                      @click="toggleSelection(index)">
-                      <label class="my_label" :for="'tipo' + index">
-                        <img :src="card.imageUrl" class="card-img" alt="veggie" />
-                        <div class="card-img-overlay d-flex justify-content-center">
-                          <h5 class="card-title align-self-center">
-                            {{ card.title }}
-                          </h5>
-                        </div>
-                      </label>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="container my_check">
-              <div class="row row-cols-3 g-4 cards">
-
-                <div class="col form-check" v-for="(tipo, index) in types" :key="tipo.id">
-
-                  <div class="card text-bg-dark">
-                    <label class="form-check-label p-5">
-                      {{ tipo.name }}
-                      <input class="form-check-input" :id="'tipo' + index" v-model="selectedTypes" type="checkbox"
-                        :value="tipo.slug" />
+              <div class="col" v-for="(card, index) in cardsOC" :key="index">
+                <a href="#" class="">
+                  <div class="card text-bg-dark my_card rounded-0 shadow" :class="{ 'selected': isSelected(index) }"
+                    @click="toggleSelection(index)">
+                    <label class="my_label" :for="'tipo' + index">
+                      <img :src="card.imageUrl" class="card-img rounded-0" alt="veggie" />
+                      <div class="card-img-overlay d-flex justify-content-center">
+                        <h5 class="card-title align-self-center text-uppercase">
+                          {{ card.title }}
+                        </h5>
+                      </div>
                     </label>
                   </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="container my_check">
+            <div class="row row-cols-3 g-4 cards">
 
+              <div class="col form-check" v-for="(tipo, index) in types" :key="tipo.id">
+
+                <div class="card text-bg-dark">
+                  <label class="form-check-label p-5">
+                    {{ tipo.name }}
+                    <input class="form-check-input" :id="'tipo' + index" v-model="selectedTypes" type="checkbox"
+                      :value="tipo.slug" />
+                  </label>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="row row-cols-1 row-cols-lg-2" v-if="restaurants.length > 0">
-          <div class="g-3" v-for="restaurant in restaurants">
-            <div class="card restaurant_card">
-              <img class="card-img-top" :src="base_API + 'storage/' + restaurant.image_url" alt="Card image cap" />
-              <div class="card-body d-flex justify-content-between align-items-center">
-                <h4 class="card-title">{{ restaurant.name }}</h4>
-                <router-link :to="{
-                  name: 'single-restaurant',
-                  params: { slug: restaurant.slug },
-                }" class="btn btn-outline-dark">
-                  More info
-                </router-link>
               </div>
-              <!-- resettare sfondo scuretto -->
             </div>
           </div>
         </div>
+      </div>
+
+
+      <div class="row row-cols-1 row-cols-lg-3 g-4 my-4" v-if="restaurants.length > 0">
+        <div class="" v-for="restaurant in restaurants">
+          <div class="card restaurant_card rounded-0 shadow h-100 bg-dark border-0">
+            <div class="card-body align-items-center border-0">
+              <h4 class="text-uppercase text-center text-white">{{ restaurant.name }}</h4>
+            </div>
+            <img class="card-img-top rounded-0 border-0" :src="base_API + 'storage/' + restaurant.image_url"
+              alt="Card image cap" />
+            <router-link :to="{
+              name: 'single-restaurant',
+              params: { slug: restaurant.slug },
+            }" class="btn bg_blue bg_blue text-light rounded-0 shadow py-2">
+              MENU
+            </router-link>
+            <div class="card-footer py-3 rounded-0 border-0">
+              <span class="text-uppercase fw-bold">
+                {{ restaurant.description }}
+              </span>
+            </div>
+            <!-- resettare sfondo scuretto -->
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
   <WorkWithUs />
@@ -223,8 +234,25 @@ h4 {
   border: 5px solid rgba(13, 150, 219, 0.937);
 }
 
+.my_card h5 {
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+}
+
+.bg_blue {
+  background-color: #00CDBC;
+}
+
+.bg_brown {
+  background-color: #DEE8C2;
+}
+
+.text_white {
+  color: #DEE8C2;
+}
+
 .cards .card .my_label {
-  height: 150px;
+  height: 120px;
   cursor: pointer;
 
   img {
@@ -239,14 +267,33 @@ h4 {
 
 .my_check {
   display: none;
-  margin-top: -32.7rem;
-  z-index: 10;
 }
 
 .restaurant_card {
   img {
     object-fit: cover;
-    height: 330px;
+    height: 300px;
+  }
+}
+
+.card.restaurant_card {
+  position: relative;
+
+  &:hover {
+    .card-footer {
+      opacity: 1;
+    }
+  }
+
+  .card-footer {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 }
 </style>
