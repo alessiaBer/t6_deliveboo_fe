@@ -41,53 +41,39 @@ export default {
       </div>
     </div>
   </div>
-  <div class="row gap-3">
-    <div class="card-hover col-4" v-for="plate in store.plates" :key="plate.id">
-      <div class="card-hover__content">
-        <h3 class="card-hover__title">
-          {{ plate.name }}
-        </h3>
-        <p class="card-hover__text">{{ plate.description }}</p>
-        <a href="#" class="card-hover__link">
-          <button class="btn btn-dark" @click="store.addToCart(plate)">
+  <div class="container">
+    <div class="row row-cols-4 gap-5">
+      <div class="card-hover col" v-for="plate in store.plates" :key="plate.id">
+        <div class="card-hover__content">
+          <h3 class="card-hover__title">
+            {{ plate.name }}
+          </h3>
+          <p class="card-hover__text">{{ plate.description }}</p>
+          <h5><span>Price: </span>{{ plate.price }} <span>€</span></h5>
+          <button class="button-54 my-2" @click="store.addToCart(plate)">
             Add to cart
           </button>
-          <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-          </svg>
-        </a>
+          <a href="#" class="card-hover__link">
+          
+          </a>
+        </div>
+        <div class="card-hover__extra">
+          <!--  <h4><span>Price: </span>{{ plate.price }} <span>€</span></h4> -->
+        </div>
+        <img :src="plate.image_url" class="img-fluid rounded-start" alt="" />
       </div>
-      <div class="card-hover__extra">
-        <h4><span>Price: </span>{{ plate.price }} <span>€</span></h4>
-      </div>
-      <img :src="plate.image_url" class="img-fluid rounded-start" alt="" />
     </div>
   </div>
   <Cart />
 </template>
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;600&display=swap');
 
-$firaSans: 'Fira Sans', sans-serif;
-
-html {
-  box-sizing: border-box;
-  font-size: 100%;
-}
-
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
 
 img {
   max-width: 100%;
   height: auto;
 }
-
 
 
 h1,
@@ -108,6 +94,7 @@ h5 {
   position: relative;
   overflow: hidden;
   box-shadow: 0 0 32px -10px rgba(0, 0, 0, 0.08);
+  font-family: "Open Sans", sans-serif;
 
   &:has(#{$root}__link:hover) {
 
@@ -188,6 +175,7 @@ h5 {
 
   &__text {
     font-size: 0.75rem;
+    font-family: "Open Sans", sans-serif;
   }
 
   &__link {
@@ -219,7 +207,7 @@ h5 {
   }
 
   &__extra {
-    height: 50%;
+    /*   height: 50%;
     position: absolute;
     display: flex;
     align-items: center;
@@ -235,7 +223,7 @@ h5 {
     color: #dee8c2;
     transform: translateY(100%);
     will-change: transform;
-    transition: transform 0.35s;
+    transition: transform 0.35s; */
 
     span {
       color: #2d7f0b;
@@ -276,6 +264,43 @@ h5 {
   img {
     object-fit: cover;
     height: 220px;
+  }
+}
+
+
+
+/* Button */
+
+
+
+
+/* CSS */
+.button-54 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-54:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .button-54 {
+    padding: 0.25em 0.75em;
   }
 }
 </style>
