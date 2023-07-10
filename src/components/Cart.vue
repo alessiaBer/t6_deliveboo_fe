@@ -21,42 +21,18 @@ export default {
 };
 </script>
 <template>
-  <div
-    id="button"
-    @mouseenter="toggleShake"
-    @mouseleave="toggleShake"
-    data-bs-toggle="offcanvas"
-    data-bs-target="#offcanvasScrolling"
-    role="button"
-    aria-controls="offcanvasScrolling"
-  >
-    <font-awesome-icon
-      :icon="['fas', 'cart-shopping']"
-      v-show="shake === false"
-    />
-    <font-awesome-icon
-      :icon="['fas', 'cart-shopping']"
-      shake
-      v-show="shake === true"
-    />
+  <div id="button" @mouseenter="toggleShake" @mouseleave="toggleShake" data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasScrolling" role="button" aria-controls="offcanvasScrolling">
+    <font-awesome-icon :icon="['fas', 'cart-shopping']" v-show="shake === false" />
+    <font-awesome-icon :icon="['fas', 'cart-shopping']" shake v-show="shake === true" />
+    <span class="badge bg-danger my_badge" v-if="store.cartItemCount > 0">{{ store.cartItemCount }}</span>
   </div>
 
-  <div
-    class="offcanvas offcanvas-end rounded m-2"
-    data-bs-scroll="true"
-    data-bs-backdrop="false"
-    tabindex="-1"
-    id="offcanvasScrolling"
-    aria-labelledby="offcanvasScrollingLabel"
-  >
+  <div class="offcanvas offcanvas-end rounded m-2" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+    id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasScrolling">Offcanvas</h5>
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="offcanvas"
-        aria-label="Close"
-      ></button>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
 
     <div class="offcanvas-body">
@@ -102,5 +78,14 @@ export default {
   cursor: pointer;
   background-color: rgb(4, 180, 165);
   color: black;
+}
+
+.my_badge {
+  position: absolute;
+  bottom: -30%;
+  left: -30%;
+  padding: 0.5rem 0.7rem;
+  color: rgb(255, 255, 255);
+  background-color: rgb(181, 21, 47) !important;
 }
 </style>

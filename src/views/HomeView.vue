@@ -159,8 +159,8 @@ export default {
 
               <div class="col" v-for="(card, index) in cardsOC" :key="index">
                 <a href="#" class="">
-                  <div class="card text-bg-dark my_card rounded-0 border-0 shadow" :class="{ 'selected': isSelected(index) }"
-                    @click="toggleSelection(index)">
+                  <div class="card text-bg-dark my_card rounded-0 border-0 shadow"
+                    :class="{ 'selected': isSelected(index) }" @click="toggleSelection(index)">
                     <label class="my_label" :for="'tipo' + index">
                       <img :src="card.imageUrl" class="card-img rounded-0" alt="veggie" />
                       <div class="card-img-overlay d-flex justify-content-center">
@@ -229,7 +229,7 @@ h4 {
   margin-bottom: 0;
 }
 
-.button_hover:hover{
+.button_hover:hover {
   background-color: rgb(33, 37, 41);
   color: #00CDBC !important;
 }
