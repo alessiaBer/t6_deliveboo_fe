@@ -3,10 +3,11 @@ import axios from "axios";
 
 import BannerHome from "../components/BannerHome.vue";
 import FooterHome from "../components/FooterHome.vue";
+import WorkWithUs from "../components/WorkWithUs.vue";
 
 export default {
   name: "HomeView",
-  components: { BannerHome, FooterHome },
+  components: { BannerHome, FooterHome, WorkWithUs },
   data() {
     return {
       types: [],
@@ -216,6 +217,7 @@ export default {
       </div>
     </div>
   </section>
+  <WorkWithUs />
   <FooterHome />
 </template>
 

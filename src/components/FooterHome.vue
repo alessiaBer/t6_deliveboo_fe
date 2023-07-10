@@ -63,7 +63,6 @@ export default {
     background-color: #2e3333;
     color: white;
     padding: 20px 0;
-    margin-top: 5rem;
 
 }
 
