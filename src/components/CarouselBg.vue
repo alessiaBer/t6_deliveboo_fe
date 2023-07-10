@@ -31,6 +31,10 @@ export default {
           id: 6,
           image: "assets/imgs/slide6.jpg",
         },
+        {
+          id: 7,
+          image: "assets/imgs/slide7.jpg",
+        },
       ],
     };
   },

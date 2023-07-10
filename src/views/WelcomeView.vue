@@ -74,10 +74,10 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%;
+  width: 40%;
   height: 100%;
   color: white;
-  background-color: rgba($color: #161616, $alpha: 0.7);
+  background-color: rgba($color: #161616, $alpha: 0.5);
   text-align: center;
   display: flex;
   flex-direction: column;
