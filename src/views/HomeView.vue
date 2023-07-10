@@ -223,7 +223,7 @@ h4{
 }
 .my_card.selected {
   /* Aggiungi lo stile desiderato per il div selezionato */
-  border: 5px solid rgba(1, 1, 5, 0.174);
+  border: 5px solid rgba(13, 150, 219, 0.937);
 }
 
 .cards .card .my_label {

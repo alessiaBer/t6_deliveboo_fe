@@ -30,7 +30,7 @@ export default {
             },
             {
               id: 5,
-              src: "https://th.bing.com/th/id/R.4f51ed8f29d0dcf1435f8414242d8f4c?rik=YZltcFrS3nWjBA&riu=http%3a%2f%2fwww.guiaderecetas.com%2fstatic%2fimages%2freceta%2fpollo-teriyaki.jpg&ehk=2MAbQYFriYM41KokHlI6TM3mwsWi79dFB9Domi6na%2fQ%3d&risl=&pid=ImgRaw&r=0",
+              src: "https://media-assets.lacucinaitaliana.it/photos/61fac043182aba61c8a4f59b/16:9/w_2560%2Cc_limit/iStock-936102564.jpg",
               alt: "image",
             },
             {
