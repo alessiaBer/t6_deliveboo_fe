@@ -36,7 +36,7 @@ export default {
 
     <div class="offcanvas-body">
       <div class="container" id="body">
-        <div class="row">
+        <div class="row" v-if="store.cart.length > 0">
           <div class="container">
             <h1 class="text-uppercase">Your Cart:</h1>
             <ul class="list-unstyled">
@@ -45,9 +45,11 @@ export default {
               </li>
             </ul>
             <h2 class="text-uppercase">Total Price:</h2>
-            <h4 class="my-2" v-if="store.cart">{{ store.totalPrice }}</h4>
+            <h4 class="my-2">{{ store.totalPrice }}</h4>
           </div>
-          
+
+
+
           <div class="d-flex gap-3">
             <router-link class="btn bg_blue rounded-0 shadow" :to="{ name: 'order' }">
               Checkout
@@ -58,6 +60,9 @@ export default {
             </button>
           </div>
 
+        </div>
+        <div class="container" v-else>
+          <h1 class="text-uppercase vertical">your cart is empty</h1>
         </div>
       </div>
     </div>
@@ -98,5 +103,11 @@ export default {
 
 .bg_pink {
   background-color: rgb(255, 218, 224) !important;
+}
+
+.vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 1.6rem;
 }
 </style>
