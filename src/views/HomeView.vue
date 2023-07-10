@@ -132,7 +132,7 @@ export default {
   <BannerHome></BannerHome>
 
   <section class="aboutme">
-    <div class="container my-5">
+    <div class="container w-75 my-5">
 
       <div class="text-center">
         <h2 class="text-uppercase">Select the restaurant Type</h2>
@@ -194,7 +194,7 @@ export default {
       </div>
 
 
-      <div class="row row-cols-1 row-cols-lg-3 g-4 my-4" v-if="restaurants.length > 0">
+      <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 g-4 my-4" v-if="restaurants.length > 0">
         <div class="" v-for="restaurant in restaurants">
           <div class="card restaurant_card rounded-0 shadow h-100 bg-dark border-0">
             <div class="card-body align-items-center border-0">
