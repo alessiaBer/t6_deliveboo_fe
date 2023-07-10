@@ -90,7 +90,7 @@ export default {
   background-color: #161616;
   color: white;
   border-radius: 5px;
-  padding: 0.5rem 0.5rem 0.2rem 0.5rem;
+  padding: 0.9rem 0.9rem 0.4rem 0.9rem;
   position: fixed;
   top: 150px;
   right: 20px;

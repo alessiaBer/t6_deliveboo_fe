@@ -139,7 +139,7 @@ export default {
       </div>
 
       <div class="container w-25">
-        <button class="btn bg_blue text-white p-3 w-100 rounded-0 shadow mt-2 text-uppercase" type="button"
+        <button class="btn bg_blue text-white p-3 w-100 rounded-0 shadow mt-2 text-uppercase button_hover" type="button"
           data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
           Types
         </button>
@@ -205,7 +205,7 @@ export default {
             <router-link :to="{
               name: 'single-restaurant',
               params: { slug: restaurant.slug },
-            }" class="btn bg_blue bg_blue text-light rounded-0 shadow py-2">
+            }" class="btn bg_blue bg_blue text-light rounded-0 shadow py-2 button_hover">
               MENU
             </router-link>
             <div class="card-footer py-3 rounded-0 border-0">
@@ -229,6 +229,11 @@ h4 {
   margin-bottom: 0;
 }
 
+.button_hover:hover{
+  background-color: rgb(33, 37, 41);
+  color: #00CDBC !important;
+}
+
 .my_card.selected {
   /* Aggiungi lo stile desiderato per il div selezionato */
   border: 5px solid rgba(13, 150, 219, 0.937);
@@ -247,7 +252,7 @@ h4 {
   background-color: #DEE8C2;
 }
 
-.text_white {
+.text_brown {
   color: #DEE8C2;
 }
 

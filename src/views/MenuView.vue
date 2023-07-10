@@ -42,25 +42,33 @@ export default {
     </div>
   </div>
   <div class="container">
-    <div class="row row-cols-4 gap-5">
-      <div class="card-hover col" v-for="plate in store.plates" :key="plate.id">
-        <div class="card-hover__content">
-          <h3 class="card-hover__title">
-            {{ plate.name }}
-          </h3>
-          <p class="card-hover__text">{{ plate.description }}</p>
-          <h5><span>Price: </span>{{ plate.price }} <span>€</span></h5>
-          <button class="button-54 my-2" @click="store.addToCart(plate)">
-            Add to cart
-          </button>
-          <a href="#" class="card-hover__link">
-          
-          </a>
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4">
+      <div class="col"  v-for="plate in store.plates" :key="plate.id">
+        <div class="card-hover my-3 shadow">
+          <div class="card-hover__content">
+            <h3 class="card-hover__title">
+              {{ plate.name }}
+            </h3>
+            <p class="card-hover__text">{{ plate.description }}</p>
+            <h5><span>Price: </span>{{ plate.price }} <span>€</span></h5>
+
+            <!-- <button class="button-54 my-2" @click="store.addToCart(plate)">
+              Add to cart
+            </button> -->
+
+            <button class="btn bg-dark rounded-0 shadow text-light my-3" @click="store.addToCart(plate)">
+              Add to <font-awesome-icon :icon="['fas', 'cart-shopping']" />
+
+            </button>
+            <a href="#" class="card-hover__link">
+
+            </a>
+          </div>
+          <div class="card-hover__extra">
+            <!--  <h4><span>Price: </span>{{ plate.price }} <span>€</span></h4> -->
+          </div>
+          <img :src="plate.image_url" class="img-fluid" alt="" />
         </div>
-        <div class="card-hover__extra">
-          <!--  <h4><span>Price: </span>{{ plate.price }} <span>€</span></h4> -->
-        </div>
-        <img :src="plate.image_url" class="img-fluid rounded-start" alt="" />
       </div>
     </div>
   </div>
@@ -68,8 +76,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
-
 img {
   max-width: 100%;
   height: auto;
@@ -89,7 +95,6 @@ h5 {
 
 .card-hover {
   $root: &;
-  width: 360px;
   height: 500px;
   position: relative;
   overflow: hidden;
@@ -112,7 +117,7 @@ h5 {
         background-color: #DEE8C2;
         bottom: 100%;
         transform: translateY(100%);
-        padding: 50px 60px;
+        padding: 25px 15px;
         transition: all 0.35s cubic-bezier(.1, .72, .4, .97);
       }
 
@@ -133,7 +138,7 @@ h5 {
     width: 100%;
     text-align: center;
     background-color: #00CDBC;
-    padding: 0 60px 50px;
+    padding: 0 25px 15px;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -242,6 +247,10 @@ h5 {
     transform: scale(1.2);
     transition: 0.35s 0.35s transform cubic-bezier(.1, .72, .4, .97);
   }
+}
+
+.text_blue{
+  color: #00CDBC;
 }
 
 .jumbo {

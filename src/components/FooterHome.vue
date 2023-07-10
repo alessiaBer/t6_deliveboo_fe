@@ -34,7 +34,7 @@ export default {
       <div class="container">
         <div class="row">
           <div v-for="(card, index) in cards" :key="index" class="col-md-3">
-            <div class="card text-white">
+            <div class="card text-white rounded-0">
               <ul class="card-list list-unstyled">
                 <h4>{{ card.title }}</h4>
                 <li v-for="(item, idx) in card.items" :key="idx" class="mb-2">
@@ -44,7 +44,7 @@ export default {
             </div>
           </div>
           <div class="col-md-3">
-            <div class="card bg-transparent text-white">
+            <div class="card bg-transparent text-white rounded-0">
               <h3>Take deliveroo with you!</h3>
               <div class="download-links">
                 <div class="mt-4">

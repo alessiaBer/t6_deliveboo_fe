@@ -193,7 +193,7 @@ export default {
   height: 120px;
   object-fit: cover;
   opacity: 0.9;
-  transition: all 1s;
+  transition: all 0.2s;
   filter: saturate(1);
   transform: scale(0.95);
 }
@@ -202,6 +202,7 @@ export default {
   filter: saturate(1.2);
   transform: scale(1.05);
   opacity: 1;
+  cursor: pointer;
 }
 
 // @keyframes scroll {
