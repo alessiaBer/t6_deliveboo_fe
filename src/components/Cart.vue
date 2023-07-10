@@ -28,33 +28,36 @@ export default {
     <span class="badge bg-danger my_badge" v-if="store.cartItemCount > 0">{{ store.cartItemCount }}</span>
   </div>
 
-  <div class="offcanvas offcanvas-end rounded m-2" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-    id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas offcanvas-end m-2 shadow bg-dark text-white" data-bs-scroll="true" data-bs-backdrop="false"
+    tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasScrolling">Offcanvas</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
 
     <div class="offcanvas-body">
       <div class="container" id="body">
         <div class="row">
           <div class="container">
-            <h1>Your Cart:</h1>
-            <ul>
+            <h1 class="text-uppercase">Your Cart:</h1>
+            <ul class="list-unstyled">
               <li v-for="item in store.cart">
                 {{ item.name }}: {{ item.price }}
               </li>
             </ul>
-            <h2>Total Price:</h2>
-            <div v-if="store.cart">{{ store.totalPrice }}</div>
+            <h2 class="text-uppercase">Total Price:</h2>
+            <h4 class="my-2" v-if="store.cart">{{ store.totalPrice }}</h4>
           </div>
-          <button class="btn btn-danger" @click="store.resetCart()">
-            Reset Cart
-          </button>
+          
+          <div class="d-flex gap-3">
+            <router-link class="btn bg_blue rounded-0 shadow" :to="{ name: 'order' }">
+              Checkout
+            </router-link>
 
-          <router-link class="btn btn-primary" :to="{ name: 'order' }">
-            Checkout
-          </router-link>
+            <button class="btn bg_pink rounded-0 shadow" @click="store.resetCart()">
+              Reset Cart
+            </button>
+          </div>
+
         </div>
       </div>
     </div>
@@ -87,5 +90,13 @@ export default {
   padding: 0.5rem 0.7rem;
   color: rgb(255, 255, 255);
   background-color: rgb(181, 21, 47) !important;
+}
+
+.bg_blue {
+  background-color: #00CDBC !important;
+}
+
+.bg_pink {
+  background-color: rgb(255, 218, 224) !important;
 }
 </style>
