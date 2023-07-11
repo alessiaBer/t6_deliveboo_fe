@@ -18,7 +18,7 @@ export default {
   <div class="container py-5">
     <h2>Order Summary</h2>
     <!--preview carrello qui -->
-    <form @submit.prevent="store.postOrder(), store.postMail()">
+    <form @submit.prevent="store.postOrder(), store.postMail(),store.resetCart()">
       <div class="mb-3">
         <label for="fullname" class="form-label">Full Name</label>
         <input type="text" class="form-control" name="fullname" id="fullname" v-model="store.fullname"
