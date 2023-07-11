@@ -2,6 +2,7 @@
 import { RouterLink } from "vue-router";
 import { store } from "../store";
 import Cart from "../components/Cart.vue";
+import axios from "axios";
 
 export default {
   name: "MenuView",
@@ -16,7 +17,24 @@ export default {
   methods: {},
 
   mounted() {
-    store.displayMenu(this.$route.params.slug);
+    //store.displayMenu(this.$route.params.slug);
+    const url = store.api + this.$route.params.slug;
+    axios
+      .get(url)
+      .then((response) => {
+        if (response.data.success) {
+          store.restaurant = response.data.result;
+          store.plates = response.data.result.plates;
+        } else {
+          this.$router.push({
+              name: "404NotFound",
+              params: { pathMatch: this.$route.path.substring(1).split("/") }
+          });
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   },
 };
 </script>
