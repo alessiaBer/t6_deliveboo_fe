@@ -122,6 +122,7 @@ export const store = reactive({
     const data = {
       clientEmail: this.email,
       userEmail: this.restaurant.user.email,
+      cart: this.cart
     };
     axios
       .post(this.mail_api, data)
@@ -129,6 +130,8 @@ export const store = reactive({
         if (response.data.success) {
           console.log("Bravo Palino");
           this.email = "";
+          this.cart = [];
+          this.cartItemCount = 0;
 
         } else if (response.data.success === false) {
           console.log(response.data.errors);
