@@ -16,7 +16,7 @@ export default {
     <div class="container">
       <nav class="navbar navbar-expand-lg px-4" data-bs-theme="dark">
         <div>
-          <a class="navbar-brand" href="#"><img id="logo" src="../../assets/imgs/deliveboo.png" alt=""></a>
+          <router-link class="nav-link nav_item" :to="{ name: 'welcome' }"><img id="logo" src="../../assets/imgs/deliveboo.png" alt=""></router-link>
         </div>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
