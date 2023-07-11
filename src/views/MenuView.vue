@@ -244,7 +244,7 @@ h5 {
     object-fit: cover;
     object-position: center;
     z-index: -1;
-    transform: scale(1.2);
+    transform: scale(1.3);
     transition: 0.7s 0.7s transform cubic-bezier(.1, .72, .4, .97);
   }
 }
