@@ -9,7 +9,7 @@ export default {
         <img src="../../public/assets/imgs/DFW Background Homepage PS2 (2).svg" alt="">
     </div>
 
-    <div class="contact">
+    <div class="contact d-none d-xxl-inline">
         
             CONTATTACI
 
@@ -17,8 +17,8 @@ export default {
     <section class="contact-me py-5">
         <div class="container">
             <div class="card p-4 shadow">
-                <form>
-                <div class="mb-3">
+                <form class="my_bg">
+                <div class="mb-3 pt_10">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" name="name" id="name" class="form-control" placeholder="Mario Rossi"
                         aria-describedby="nameHelper">
@@ -58,5 +58,18 @@ export default {
     position: absolute;
     top: 13rem;
     left: 56rem;
+}
+
+.my_padding{
+    margin-top: -5rem;
+}
+
+.my_bg{
+    background-image: url(../../public/assets/imgs/teamGang.png);
+    background-size: cover
+}
+
+.pt_10{
+    padding-top: 17rem;
 }
 </style>
