@@ -18,14 +18,14 @@ export default {
   <div class="container py-5">
     <h2>Order Summary</h2>
     <!--preview carrello qui -->
+    <div class="card border-0 rounded-0 shadow my-5 text-center py-3 bg_pink"
+      v-if="store.cartItemCount === 0">
+      <h1 class="text-uppercase">order succesfully sent!</h1>
+      <p>Check your email for order summary!
+      </p>
+    </div>
     
-    <form @submit.prevent="store.postOrder(), store.postMail(), store.resetCart()">
-      <div class="card border-0 rounded-0 shadow my-5 text-center py-3 bg_pink"
-        v-if="store.cartItemCount === 0">
-        <h1 class="text-uppercase">order succesfully sent!</h1>
-        <p>Check your email for order summary!
-        </p>
-      </div>
+    <form @submit.prevent="store.postOrder(), store.postMail(), store.resetCart()" v-else>
       <div class="mb-3">
         <label for="fullname" class="form-label">Full Name</label>
         <input type="text" class="form-control" name="fullname" id="fullname" v-model="store.fullname"
