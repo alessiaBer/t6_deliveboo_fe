@@ -10,6 +10,7 @@ export default {
     store.returnIds()
     store.calcTotPrice()
     store.braintree()
+    
   }
 };
 </script>
@@ -17,7 +18,7 @@ export default {
   <div class="container py-5">
     <h2>Order Summary</h2>
     <!--preview carrello qui -->
-    <form @submit.prevent="store.postOrder()">
+    <form @submit.prevent="store.postOrder(), store.postMail()">
       <div class="mb-3">
         <label for="fullname" class="form-label">Full Name</label>
         <input type="text" class="form-control" name="fullname" id="fullname" v-model="store.fullname"
@@ -36,7 +37,7 @@ export default {
 
         <div id="dropin-container"></div>
         <button id="submit-button" class="button button--small button--green">Purchase</button>
-        <button class="btn btn-outline-dark d-block">Confirm</button>
+        <button class="btn btn-outline-dark d-block" >Confirm</button>
       </div>
     </form>
   </div>
