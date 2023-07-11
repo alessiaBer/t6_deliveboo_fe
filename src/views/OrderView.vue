@@ -18,28 +18,30 @@ export default {
   <div class="container py-5">
     <h2>Order Summary</h2>
     <!--preview carrello qui -->
-    <div class="card border-0 rounded-0 shadow my-5 text-center py-3 bg_pink"
-      v-if="store.cartItemCount === 0">
+    <div class="card border-0 rounded-0 shadow my-5 text-center py-3 bg_pink" v-if="store.cartItemCount === 0">
       <h1 class="text-uppercase">order succesfully sent!</h1>
       <p>Check your email for order summary!
       </p>
+      <div class="text-center">
+        <router-link class="btn btn-primary bg-dark w-25 text-light border-0 rounded-0 my-3" :to="{ name: 'home' }">Home</router-link>
+      </div>
     </div>
-    
+
     <form @submit.prevent="store.postOrder(), store.postMail(), store.resetCart()" v-else>
       <div class="mb-3">
         <label for="fullname" class="form-label">Full Name</label>
         <input type="text" class="form-control" name="fullname" id="fullname" v-model="store.fullname"
-          placeholder="John Doe" required/>
+          placeholder="John Doe" required />
         <label for="fullname" class="form-label">Address</label>
         <input type="text" class="form-control" name="address" id="address" v-model="store.address"
-          placeholder="Via Parini 6" required/>
+          placeholder="Via Parini 6" required />
         <label for="phone" class="form-label">Phone</label>
         <input type="number" class="form-control" name="phone" id="phone" v-model="store.phone"
-          placeholder="+39 347 77 77 777" required/>
+          placeholder="+39 347 77 77 777" required />
         <div class="mb-3">
           <label for="email" class="form-label">Email address</label>
           <input type="email" class="form-control" id="email" name="email" v-model="store.email"
-            placeholder="name@example.com" required/>
+            placeholder="name@example.com" required />
         </div>
 
         <div id="dropin-container"></div><!-- 
@@ -84,7 +86,7 @@ export default {
   color: white;
 }
 
-.bg_pink{
+.bg_pink {
   background-color: rgb(255, 218, 224) !important;
 }
 </style>
