@@ -67,7 +67,7 @@ export default {
           <div class="card-hover__extra">
             <!--  <h4><span>Price: </span>{{ plate.price }} <span>€</span></h4> -->
           </div>
-          <img :src="plate.image_url" class="img-fluid" alt="" />
+          <img :src="store.base_api + 'storage/' + plate.image_url" class="img-fluid" alt="" />
         </div>
       </div>
     </div>
@@ -105,7 +105,7 @@ h5 {
 
     #{$root}__extra {
       transform: translateY(0);
-      transition: transform 0.35s;
+      transition: transform 0.7s;
     }
   }
 
@@ -114,36 +114,36 @@ h5 {
     #{$root} {
 
       &__content {
-        background-color: #DEE8C2;
+        background-color: rgba(222, 232, 194, 0.6);
         bottom: 100%;
         transform: translateY(100%);
         padding: 25px 15px;
-        transition: all 0.35s cubic-bezier(.1, .72, .4, .97);
+        transition: all 0.7s cubic-bezier(.1, .72, .4, .97);
       }
 
       &__link {
         opacity: 1;
         transform: translate(-50%, 0);
-        transition: all 0.3s 0.35s cubic-bezier(.1, .72, .4, .97);
+        transition: all 0.3s 0.7s cubic-bezier(.1, .72, .4, .97);
       }
     }
 
     img {
       transform: scale(1);
-      transition: 0.35s 0.1s transform cubic-bezier(.1, .72, .4, .97);
+      transition: 0.7s 0.1s transform cubic-bezier(.1, .72, .4, .97);
     }
   }
 
   &__content {
     width: 100%;
     text-align: center;
-    background-color: #00CDBC;
-    padding: 0 25px 15px;
+    background-color: #00cdbc;
+    padding: 0;
     position: absolute;
     bottom: 0;
     left: 0;
     transform: translateY(0);
-    transition: all 0.35s 0.35s cubic-bezier(.1, .72, .4, .97);
+    transition: all 0.7s 0.7s cubic-bezier(.1, .72, .4, .97);
     will-change: bottom, background-color, transform, padding;
     z-index: 1;
 
@@ -152,20 +152,20 @@ h5 {
       content: '';
       width: 100%;
       height: 120px;
-      background-color: inherit;
       position: absolute;
       left: 0;
       z-index: -1;
+      background-color: inherit;
     }
 
     &::before {
-      top: -80px;
-      clip-path: ellipse(60% 80px at bottom center);
+      top: -120px;
+      clip-path: ellipse(60% 25px at bottom center);
     }
 
     &::after {
-      bottom: -80px;
-      clip-path: ellipse(60% 80px at top center);
+      bottom: -120px;
+      clip-path: ellipse(60% 25px at top center);
     }
   }
 
@@ -192,10 +192,10 @@ h5 {
     flex-wrap: wrap;
     align-items: center;
     text-decoration: none;
-    color: #2d7f0b;
+    color: #2e7f0bb2;
     opacity: 0;
     padding: 10px;
-    transition: all 0.35s;
+    transition: all 0.7s;
 
     &:hover {
 
@@ -228,7 +228,7 @@ h5 {
     color: #dee8c2;
     transform: translateY(100%);
     will-change: transform;
-    transition: transform 0.35s; */
+    transition: transform 0.7s; */
 
     span {
       color: #2d7f0b;
@@ -245,7 +245,7 @@ h5 {
     object-position: center;
     z-index: -1;
     transform: scale(1.2);
-    transition: 0.35s 0.35s transform cubic-bezier(.1, .72, .4, .97);
+    transition: 0.7s 0.7s transform cubic-bezier(.1, .72, .4, .97);
   }
 }
 
