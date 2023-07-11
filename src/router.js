@@ -4,6 +4,7 @@ import HomeView from "./views/HomeView.vue";
 import MenuView from "./views/MenuView.vue";
 import NotFound from "./views/NotFound.vue";
 import OrderView from "./views/OrderView.vue";
+import ContactsView from "./views/ContactsView.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -33,6 +34,11 @@ const router = createRouter({
       name: "single-restaurant",
       component: MenuView,
     },
+    {
+      path: "/contacts",
+      name: "contacts",
+      component: ContactsView,
+    }
   ],
 });
 

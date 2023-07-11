@@ -33,6 +33,9 @@ export default {
               <router-link class="nav-link nav_item" :to="{ name: 'home' }">Home</router-link>
             </li>
             <li>
+              <router-link class="nav-link nav_item" :to="{ name: 'contacts' }">Contacts</router-link>
+            </li>
+            <li>
               <a class="nav-link nav_item" target="_blank" :href="this.login_url">Login</a>
             </li>
           </ul>
