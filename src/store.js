@@ -17,21 +17,25 @@ export const store = reactive({
   phone: null,
   email: "",
   status: "Ordine inviato",
-  displayMenu(slug) {
+  /* displayMenu(slug) {
     const url = this.api + slug;
     axios
       .get(url)
       .then((response) => {
-        //console.log("Response data:", response.data);
-        this.restaurant = response.data.result;
-        this.plates = response.data.result.plates;
-        //console.log("Restaurant:", this.restaurant);
-        //console.log("Plates:", this.plates);
+        if (response.data.success) {
+          this.restaurant = response.data.result;
+          this.plates = response.data.result.plates;
+        } else {
+          this.$router.push({
+              name: "404NotFound",
+              params: { pathMatch: this.$route.path.substring(1).split("/") }
+          });
+        }
       })
       .catch((error) => {
         console.error(error);
       });
-  },
+  }, */
   addToCart(plate) {
     this.cart.push(plate);
     const price = plate.price;
