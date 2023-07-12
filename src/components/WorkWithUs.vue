@@ -1,4 +1,7 @@
 <script>
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default {
   name: "WorkWithUs",
   data() {
@@ -32,13 +35,29 @@ export default {
       ],
     };
   },
+  mounted() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const slide = this.$refs.slide;
+
+    gsap.from(slide, {
+      opacity: 0,
+      y: 150,
+      scrollTrigger: {
+        trigger: slide,
+        start: "top 80%",
+        end: "bottom 70%",
+        toggleActions: "play none none reverse",
+      },
+    });
+  },
 };
 </script>
 
 
 <template>
   <div class="my-container py-5">
-    <div class="container">
+    <div class="container" ref="slide">
       <h1 class="my-4">Lavora con Deliveroo</h1>
       <div class="row row-cols-1 row-cols-md-3">
         <div v-for="(card, index) in cards" :key="index" class="col">

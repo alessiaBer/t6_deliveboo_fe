@@ -4,9 +4,13 @@ import { ScrollTrigger } from "gsap/all";
 
 export default {
   name: "ScrollButton",
+  
   methods: {
     scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
+    },
+    handleResize() {
+      ScrollTrigger.refresh();
     },
   },
   mounted() {
@@ -23,6 +27,11 @@ export default {
         toggleActions: "play none none reverse",
       },
     });
+
+    window.addEventListener("resize", this.handleResize);
+  },
+  beforeUnmount() {
+    window.removeEventListener("resize", this.handleResize);
   },
 };
 </script>
@@ -34,8 +43,6 @@ export default {
 </template>
 
 <style scoped lang="scss">
-
-
 #button {
   background-color: pink;
   color: black;
@@ -55,5 +62,4 @@ export default {
   background-color: #00cdbc;
   color: black;
 }
-
 </style>

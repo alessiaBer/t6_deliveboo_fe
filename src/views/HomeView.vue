@@ -260,7 +260,7 @@ export default {
   </section>
   <WorkWithUs />
   <FooterHome />
-  <ScrollButton />
+  <ScrollButton/>
 </template>
 
 <style lang="scss" scoped>
