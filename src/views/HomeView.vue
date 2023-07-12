@@ -4,10 +4,11 @@ import axios from "axios";
 import BannerHome from "../components/BannerHome.vue";
 import FooterHome from "../components/FooterHome.vue";
 import WorkWithUs from "../components/WorkWithUs.vue";
+import ScrollButton from "../components/ScrollButton.vue";
 
 export default {
   name: "HomeView",
-  components: { BannerHome, FooterHome, WorkWithUs },
+  components: { BannerHome, FooterHome, WorkWithUs, ScrollButton},
   data() {
     return {
       types: [],
@@ -259,6 +260,7 @@ export default {
   </section>
   <WorkWithUs />
   <FooterHome />
+  <ScrollButton />
 </template>
 
 <style lang="scss" scoped>
