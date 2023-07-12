@@ -339,7 +339,7 @@ h4 {
     background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
     display: none;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
 
     scrollbar-width: thin;
     scrollbar-color: #fff rgba(255, 255, 255, 0.7);
