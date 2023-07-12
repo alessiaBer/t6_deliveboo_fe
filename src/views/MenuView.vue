@@ -74,18 +74,17 @@ export default {
               Add to cart
             </button> -->
 
-            <button class="btn bg-dark rounded-0 shadow text-light my-3" @click="store.addToCart(plate)">
-              Add to <font-awesome-icon :icon="['fas', 'cart-shopping']" />
-
-            </button>
             <a href="#" class="card-hover__link">
-
+              
             </a>
           </div>
           <div class="card-hover__extra">
             <!--  <h4><span>Price: </span>{{ plate.price }} <span>€</span></h4> -->
           </div>
           <img :src="store.base_api + 'storage/' + plate.image_url" class="img-fluid" alt="" />
+          <button class="btn bg-dark rounded-0 shadow text-light my-3" @click="store.addToCart(plate)">
+            Add to <font-awesome-icon :icon="['fas', 'cart-shopping']" />
+          </button>
         </div>
       </div>
     </div>
@@ -110,6 +109,17 @@ h5 {
   margin-bottom: 0;
 }
 
+.col button{
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 50px);
+  z-index: 100;
+}
+
+.col button:hover{
+  background-color: #00CDBC !important;
+  color: black !important;
+}
 
 .card-hover {
   $root: &;
@@ -156,7 +166,7 @@ h5 {
     width: 100%;
     text-align: center;
     background-color: #00cdbc;
-    padding: 0;
+    padding-bottom: 4rem;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -227,26 +237,6 @@ h5 {
       margin-left: 4px;
       transition: transform 0.3s;
     }
-  }
-
-  &__extra {
-    /*   height: 50%;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    font-size: 1.5rem;
-    text-align: center;
-    background-color: #86b971;
-    padding: 80px;
-    bottom: 0;
-    z-index: 0;
-    color: #dee8c2;
-    transform: translateY(100%);
-    will-change: transform;
-    transition: transform 0.7s; */
 
     span {
       color: #2d7f0b;
