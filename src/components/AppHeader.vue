@@ -49,7 +49,7 @@ export default {
 header {
   position: sticky;
   top: 0;
-  z-index: 15;
+  z-index: 1000;
   background-color: #161616;
   color: white;
 }
