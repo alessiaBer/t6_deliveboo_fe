@@ -14,6 +14,15 @@ export default {
     toggleShake() {
       this.shake = !this.shake;
     },
+    removeItem(index) {
+      this.store.cart.splice(index, 1);
+      this.store.prices.splice(index, 1);
+      this.store.calcTotPrice();
+      this.store.cartItemCount--;
+
+      localStorage.setItem("cart", JSON.stringify(this.store.cart));
+      localStorage.setItem("prices", JSON.stringify(this.store.prices));
+    },
   },
   mounted() {
     store.calcTotPrice();
@@ -21,17 +30,44 @@ export default {
 };
 </script>
 <template>
-  <div id="button" @mouseenter="toggleShake" @mouseleave="toggleShake" data-bs-toggle="offcanvas"
-    data-bs-target="#offcanvasScrolling" role="button" aria-controls="offcanvasScrolling">
-    <font-awesome-icon :icon="['fas', 'cart-shopping']" v-show="shake === false" />
-    <font-awesome-icon :icon="['fas', 'cart-shopping']" shake v-show="shake === true" />
-    <span class="badge bg-danger my_badge" v-if="store.cartItemCount > 0">{{ store.cartItemCount }}</span>
+  <div
+    id="button"
+    @mouseenter="toggleShake"
+    @mouseleave="toggleShake"
+    data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasScrolling"
+    role="button"
+    aria-controls="offcanvasScrolling"
+  >
+    <font-awesome-icon
+      :icon="['fas', 'cart-shopping']"
+      v-show="shake === false"
+    />
+    <font-awesome-icon
+      :icon="['fas', 'cart-shopping']"
+      shake
+      v-show="shake === true"
+    />
+    <span class="badge bg-danger my_badge" v-if="store.cartItemCount > 0">{{
+      store.cartItemCount
+    }}</span>
   </div>
 
-  <div class="offcanvas offcanvas-end m-2 shadow bg-dark text-white" data-bs-scroll="true" data-bs-backdrop="false"
-    tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div
+    class="offcanvas offcanvas-end m-2 shadow bg-dark text-white"
+    data-bs-scroll="true"
+    data-bs-backdrop="false"
+    tabindex="-1"
+    id="offcanvasScrolling"
+    aria-labelledby="offcanvasScrollingLabel"
+  >
     <div class="offcanvas-header">
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <button
+        type="button"
+        class="btn-close btn-close-white"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
     </div>
 
     <div class="offcanvas-body">
@@ -40,26 +76,35 @@ export default {
           <div class="container">
             <h1 class="text-uppercase">Your Cart:</h1>
             <ul class="list-unstyled">
-              <li v-for="item in store.cart">
-                {{ item.name }}: {{ item.price }}
+              <li
+                class="d-flex justify-content-between mb-1"
+                v-for="item in store.cart"
+              >
+                <div>{{ item.name }}: {{ item.price }}</div>
+                <div @click="removeItem(index)" class="btn btn-sm btn-danger">
+                  <font-awesome-icon :icon="['fas', 'trash']" />
+                </div>
               </li>
             </ul>
             <h2 class="text-uppercase">Total Price:</h2>
             <h4 class="my-2">{{ store.totalPrice }}</h4>
           </div>
 
-
-
           <div class="d-flex gap-3">
-            <router-link class="btn bg_blue rounded-0 shadow" :to="{ name: 'order' }">
+            <router-link
+              class="btn bg_blue rounded-0 shadow"
+              :to="{ name: 'order' }"
+            >
               Checkout
             </router-link>
 
-            <button class="btn bg_pink rounded-0 shadow" @click="store.resetCart()">
+            <button
+              class="btn bg_pink rounded-0 shadow"
+              @click="store.resetCart()"
+            >
               Reset Cart
             </button>
           </div>
-
         </div>
         <div class="container" v-else>
           <h1 class="text-uppercase vertical">your cart is empty</h1>
@@ -98,7 +143,7 @@ export default {
 }
 
 .bg_blue {
-  background-color: #00CDBC !important;
+  background-color: #00cdbc !important;
 }
 
 .bg_pink {

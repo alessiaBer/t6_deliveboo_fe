@@ -72,6 +72,7 @@ export const store = reactive({
     this.prices = [];
     this.totalPrice = 0;
     this.cartItemCount = 0;
+    
     localStorage.removeItem("cart");
     localStorage.removeItem("prices");
   },

@@ -10,7 +10,6 @@ export default {
     store.returnIds()
     store.calcTotPrice()
     store.braintree()
-
   }
 };
 </script>
