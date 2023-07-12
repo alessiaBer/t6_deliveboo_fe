@@ -30,44 +30,19 @@ export default {
 };
 </script>
 <template>
-  <div
-    id="button"
-    @mouseenter="toggleShake"
-    @mouseleave="toggleShake"
-    data-bs-toggle="offcanvas"
-    data-bs-target="#offcanvasScrolling"
-    role="button"
-    aria-controls="offcanvasScrolling"
-  >
-    <font-awesome-icon
-      :icon="['fas', 'cart-shopping']"
-      v-show="shake === false"
-    />
-    <font-awesome-icon
-      :icon="['fas', 'cart-shopping']"
-      shake
-      v-show="shake === true"
-    />
+  <div id="button" @mouseenter="toggleShake" @mouseleave="toggleShake" data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasScrolling" role="button" aria-controls="offcanvasScrolling">
+    <font-awesome-icon :icon="['fas', 'cart-shopping']" v-show="shake === false" />
+    <font-awesome-icon :icon="['fas', 'cart-shopping']" shake v-show="shake === true" />
     <span class="badge bg-danger my_badge" v-if="store.cartItemCount > 0">{{
       store.cartItemCount
     }}</span>
   </div>
 
-  <div
-    class="offcanvas offcanvas-end m-2 shadow bg-dark text-white"
-    data-bs-scroll="true"
-    data-bs-backdrop="false"
-    tabindex="-1"
-    id="offcanvasScrolling"
-    aria-labelledby="offcanvasScrollingLabel"
-  >
+  <div class="offcanvas offcanvas-end m-2 shadow bg-dark text-white" data-bs-scroll="true" data-bs-backdrop="false"
+    tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
     <div class="offcanvas-header">
-      <button
-        type="button"
-        class="btn-close btn-close-white"
-        data-bs-dismiss="offcanvas"
-        aria-label="Close"
-      ></button>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
 
     <div class="offcanvas-body">
@@ -76,12 +51,10 @@ export default {
           <div class="container">
             <h1 class="text-uppercase">Your Cart:</h1>
             <ul class="list-unstyled">
-              <li
-                class="d-flex justify-content-between mb-1"
-                v-for="item in store.cart"
-              >
+              <li class="d-flex justify-content-between mb-1" v-for="(item, index) in store.cart">
+
                 <div>{{ item.name }}: {{ item.price }}</div>
-                <div @click="removeItem(index)" class="btn btn-sm btn-danger">
+                <div @click="removeItem(index)" class="trash_can">
                   <font-awesome-icon :icon="['fas', 'trash']" />
                 </div>
               </li>
@@ -91,17 +64,11 @@ export default {
           </div>
 
           <div class="d-flex gap-3">
-            <router-link
-              class="btn bg_blue rounded-0 shadow"
-              :to="{ name: 'order' }"
-            >
+            <router-link class="btn bg_blue rounded-0 shadow" :to="{ name: 'order' }">
               Checkout
             </router-link>
 
-            <button
-              class="btn bg_pink rounded-0 shadow"
-              @click="store.resetCart()"
-            >
+            <button class="btn bg_pink rounded-0 shadow" @click="store.resetCart()">
               Reset Cart
             </button>
           </div>
@@ -154,5 +121,14 @@ export default {
   writing-mode: vertical-rl;
   text-orientation: upright;
   font-size: 1.6rem;
+}
+
+.trash_can {
+  color: rgb(255, 218, 224);
+}
+
+.trash_can:hover {
+  cursor: pointer;
+  color: rgb(199, 33, 80);
 }
 </style>
