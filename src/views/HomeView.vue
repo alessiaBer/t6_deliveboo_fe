@@ -290,6 +290,8 @@ h4 {
   }
 
   .card-footer {
+    overflow-y: auto;
+    max-height: 300px;
     position: absolute;
     bottom: 10%;
     left: 0;
@@ -298,6 +300,28 @@ h4 {
     color: #fff;
     opacity: 0;
     transition: opacity 0.3s ease;
+
+    scrollbar-width: thin;
+    scrollbar-color: #fff rgba(255, 255, 255, 0.7);
+
   }
+
+  .card-footer::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .card-footer::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+  }
+
+  .card-footer::-webkit-scrollbar-thumb:hover {
+    background-color: #fff;
+  }
+
+  .card-footer::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
 }
 </style>
