@@ -99,8 +99,6 @@ export default {
         this.selectedCardIndexes.push(index);
       }
     },
-
-
   },
   mounted() {
     const url = this.base_API + "api/types";
@@ -122,8 +120,8 @@ export default {
       handler() {
         this.getRestaurants();
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
 };
 </script>
@@ -133,37 +131,59 @@ export default {
 
   <section class="aboutme">
     <div class="container w-75 my-5">
-
       <div class="text-center">
         <h2 class="text-uppercase">Select the restaurant Type</h2>
       </div>
 
       <div class="container w-25">
-        <button class="btn bg_blue text-white p-3 w-100 rounded-0 shadow mt-2 text-uppercase button_hover" type="button"
-          data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+        <button
+          class="btn bg_blue text-white p-3 w-100 rounded-0 shadow mt-2 text-uppercase button_hover"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasTop"
+          aria-controls="offcanvasTop"
+        >
           Types
         </button>
       </div>
 
-      <div class="offcanvas offcanvas-start m-2" data-bs-scroll="true" tabindex="-1" id="offcanvasTop"
-        aria-labelledby="offcanvasTopLabel">
+      <div
+        class="offcanvas offcanvas-start m-2"
+        data-bs-scroll="true"
+        tabindex="-1"
+        id="offcanvasTop"
+        aria-labelledby="offcanvasTopLabel"
+      >
         <div class="offcanvas-header">
           <h5 class="offcanvas-title text-uppercase" id="offcanvasTopLabel">
             Filter for your favorite types!
           </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
         </div>
         <div class="offcanvas-body my_offcanvas">
           <div class="container">
             <div class="row row-cols-1 g-4 cards">
-
               <div class="col" v-for="(card, index) in cardsOC" :key="index">
                 <a href="#" class="">
-                  <div class="card text-bg-dark my_card rounded-0 border-0 shadow"
-                    :class="{ 'selected': isSelected(index) }" @click="toggleSelection(index)">
+                  <div
+                    class="card text-bg-dark my_card rounded-0 border-0 shadow"
+                    :class="{ selected: isSelected(index) }"
+                    @click="toggleSelection(index)"
+                  >
                     <label class="my_label" :for="'tipo' + index">
-                      <img :src="card.imageUrl" class="card-img rounded-0" alt="veggie" />
-                      <div class="card-img-overlay d-flex justify-content-center">
+                      <img
+                        :src="card.imageUrl"
+                        class="card-img rounded-0"
+                        alt="veggie"
+                      />
+                      <div
+                        class="card-img-overlay d-flex justify-content-center"
+                      >
                         <h5 class="card-title align-self-center text-uppercase">
                           {{ card.title }}
                         </h5>
@@ -176,36 +196,54 @@ export default {
           </div>
           <div class="container my_check">
             <div class="row row-cols-3 g-4 cards">
-
-              <div class="col form-check" v-for="(tipo, index) in types" :key="tipo.id">
-
+              <div
+                class="col form-check"
+                v-for="(tipo, index) in types"
+                :key="tipo.id"
+              >
                 <div class="card text-bg-dark">
                   <label class="form-check-label p-5">
                     {{ tipo.name }}
-                    <input class="form-check-input" :id="'tipo' + index" v-model="selectedTypes" type="checkbox"
-                      :value="tipo.slug" />
+                    <input
+                      class="form-check-input"
+                      :id="'tipo' + index"
+                      v-model="selectedTypes"
+                      type="checkbox"
+                      :value="tipo.slug"
+                    />
                   </label>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
       </div>
 
-
-      <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 g-4 my-4" v-if="restaurants.length > 0">
+      <div
+        class="row row-cols-1 row-cols-md-3 row-cols-xl-4 g-4 my-4"
+        v-if="restaurants.length > 0"
+      >
         <div class="" v-for="restaurant in restaurants">
-          <div class="card restaurant_card rounded-0 shadow h-100 bg-dark border-0">
+          <div
+            class="card restaurant_card rounded-0 shadow h-100 bg-dark border-0"
+          >
             <div class="card-body align-items-center border-0">
-              <h4 class="text-uppercase text-center text-white">{{ restaurant.name }}</h4>
+              <h4 class="text-uppercase text-center text-white">
+                {{ restaurant.name }}
+              </h4>
             </div>
-            <img class="card-img-top rounded-0 border-0" :src="base_API + 'storage/' + restaurant.image_url"
-              alt="Card image cap" />
-            <router-link :to="{
-              name: 'single-restaurant',
-              params: { slug: restaurant.slug },
-            }" class="btn bg_blue bg_blue text-light rounded-0 shadow py-2 button_hover">
+            <img
+              class="card-img-top rounded-0 border-0"
+              :src="base_API + 'storage/' + restaurant.image_url"
+              alt="Card image cap"
+            />
+            <router-link
+              :to="{
+                name: 'single-restaurant',
+                params: { slug: restaurant.slug },
+              }"
+              class="btn bg_blue bg_blue text-light rounded-0 shadow py-2 button_hover"
+            >
               MENU
             </router-link>
             <div class="card-footer py-3 rounded-0 border-0">
@@ -217,7 +255,6 @@ export default {
           </div>
         </div>
       </div>
-
     </div>
   </section>
   <WorkWithUs />
@@ -231,11 +268,11 @@ h4 {
 
 .button_hover:hover {
   background-color: rgb(33, 37, 41);
-  color: #00CDBC !important;
+  color: #00cdbc !important;
 }
 
 .my_card.selected {
-  border: 5px solid #00CDBC !important;
+  border: 5px solid #00cdbc !important;
 }
 
 .my_card h5 {
@@ -244,15 +281,15 @@ h4 {
 }
 
 .bg_blue {
-  background-color: #00CDBC;
+  background-color: #00cdbc;
 }
 
 .bg_brown {
-  background-color: #DEE8C2;
+  background-color: #dee8c2;
 }
 
 .text_brown {
-  color: #DEE8C2;
+  color: #dee8c2;
 }
 
 .cards .card .my_label {
@@ -285,7 +322,10 @@ h4 {
 
   &:hover {
     .card-footer {
-      opacity: 1;
+      display: block;
+      overflow-y: auto;
+      left: 0;
+      right: 0;
     }
   }
 
@@ -293,17 +333,16 @@ h4 {
     overflow-y: auto;
     max-height: 300px;
     position: absolute;
-    bottom: 10%;
+    bottom: 9.8%;
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
-    opacity: 0;
+    display: none;
     transition: opacity 0.3s ease;
 
     scrollbar-width: thin;
     scrollbar-color: #fff rgba(255, 255, 255, 0.7);
-
   }
 
   .card-footer::-webkit-scrollbar {
@@ -322,6 +361,5 @@ h4 {
   .card-footer::-webkit-scrollbar-track {
     background-color: transparent;
   }
-
 }
 </style>
