@@ -53,7 +53,7 @@ export default {
 
 <template>
   <div class="container">
-    <h2 class="text-center text-light">Team Leader</h2>
+    <h2 class="text-center text-light stroke">Team Leader</h2>
     <div class="row row-cols-1 row-cols-md-2 justify-content-center">
       <div class="col mb-2">
         <div class="card my_card">
@@ -67,7 +67,7 @@ export default {
         </div>
       </div>
     </div>
-    <h2 class="text-center text-dark">Team Members</h2>
+    <h2 class="text-center text-dark stroke">Team Members</h2>
     <div class="row row-cols-1 row-cols-md-2">
       <div class="col mb-2" v-for="card in cards">
         <div class="card my_card">
@@ -97,8 +97,10 @@ export default {
   writing-mode:vertical-lr;
   text-orientation: upright;
   color: white;
+}.stroke{
+  font-size: 3rem;
+  -webkit-text-stroke: 0.5px white;
 }
-
 .my_links{
   font-size: 2.5rem;
   color: white !important;
