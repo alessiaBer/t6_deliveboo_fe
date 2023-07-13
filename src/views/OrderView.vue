@@ -52,7 +52,7 @@ export default {
       </div>
     </div>
 
-    <h2>Make your Order!</h2>
+    <h2 class="text-uppercase text-center my-4">Make your Order!</h2>
     <div
       class="card border-0 rounded-0 shadow my-5 text-center py-3 bg_pink"
       v-if="store.cartItemCount === 0"
@@ -69,7 +69,7 @@ export default {
     </div>
 
     <form
-      @submit.prevent="store.postOrder(), store.postMail(), store.resetCart()"
+      @submit.prevent="store.postOrder(), store.postMail(), store.resetCart()" class="border-0 rounded-0 shadow p-3"
       v-else
     >
       <div class="mb-3">
