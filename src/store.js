@@ -18,25 +18,7 @@ export const store = reactive({
   email: "",
   status: "Ordine inviato",
   paymentValidated: false,
-  /* displayMenu(slug) {
-    const url = this.api + slug;
-    axios
-      .get(url)
-      .then((response) => {
-        if (response.data.success) {
-          this.restaurant = response.data.result;
-          this.plates = response.data.result.plates;
-        } else {
-          this.$router.push({
-              name: "404NotFound",
-              params: { pathMatch: this.$route.path.substring(1).split("/") }
-          });
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, */
+  
   addToCart(plate) {
     this.cart.push(plate);
     const price = plate.price;
