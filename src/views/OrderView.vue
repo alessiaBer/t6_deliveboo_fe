@@ -52,26 +52,26 @@ export default {
       </div>
     </div>
 
-    <h2 class="text-uppercase text-center my-4">Make your Order!</h2>
     <div
-      class="card border-0 rounded-0 shadow my-5 text-center py-3 bg_pink"
-      v-if="store.cartItemCount === 0"
+    class="card border-0 rounded-0 shadow my-5 text-center py-3 bg_pink"
+    v-if="store.cartItemCount === 0"
     >
-      <h1 class="text-uppercase">order succesfully sent!</h1>
-      <p>Check your email for order summary!</p>
-      <div class="text-center">
-        <router-link
-          class="btn btn-primary bg-dark w-25 text-light border-0 rounded-0 my-3"
-          :to="{ name: 'home' }"
-          >Home</router-link
-        >
-      </div>
+    <h1 class="text-uppercase">order succesfully sent!</h1>
+    <p>Check your email for order summary!</p>
+    <div class="text-center">
+      <router-link
+      class="btn btn-primary bg-dark w-25 text-light border-0 rounded-0 my-3"
+      :to="{ name: 'home' }"
+      >Home</router-link
+      >
     </div>
-
-    <form
-      @submit.prevent="store.postOrder(), store.postMail(), store.resetCart()" class="border-0 rounded-0 shadow p-3"
-      v-else
-    >
+  </div>
+  
+  <form
+  @submit.prevent="store.postOrder(), store.postMail(), store.resetCart()" class="border-0 rounded-0 shadow p-3"
+  v-else
+  >
+  <h2 class="text-uppercase text-center my-4">Make your Order!</h2>
       <div class="mb-3">
         <label for="fullname" class="form-label">Full Name</label>
         <input
