@@ -17,6 +17,7 @@ export const store = reactive({
   phone: null,
   email: "",
   status: "Ordine inviato",
+  paymentValidated: false,
   /* displayMenu(slug) {
     const url = this.api + slug;
     axios
@@ -72,7 +73,8 @@ export const store = reactive({
     this.prices = [];
     this.totalPrice = 0;
     this.cartItemCount = 0;
-    
+    store.paymentValidated = false
+
     localStorage.removeItem("cart");
     localStorage.removeItem("prices");
   },
@@ -113,11 +115,23 @@ export const store = reactive({
       });
   },
   braintree() {
+    const input = document.querySelector('#dropin-wrapper');
     braintree.dropin.create({
       // Insert your tokenization key here
       authorization: 'sandbox_gpqggwy8_kxst6vhrdbqkw2dp',
       container: '#dropin-container'
-    })
+    }, function (createErr, instance) {
+      input.addEventListener('mouseleave', function () {
+        instance.requestPaymentMethod((requestPaymentMethodErr, payload) => {
+          if (requestPaymentMethodErr) {
+            console.error(requestPaymentMethodErr);
+          } else {
+            store.paymentValidated = true
+            console.log(store.paymentValidated);
+          }
+        });
+      });
+    });
   },
   postMail() {
     const data = {
