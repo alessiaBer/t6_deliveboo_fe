@@ -4,14 +4,14 @@ export default {
   data() {
     return {
       store,
-      paymentValidated: false
+      /* paymentValidated: false */
     }
   },
   methods: {
     verify() {
       const braintree = store.braintree()
       if (braintree) {
-        this.paymentValidated = true
+        store.paymentValidated = true
       }
     }
     /* verifyPayment() {
@@ -32,7 +32,7 @@ export default {
     store.returnIds()
     store.calcTotPrice()
     store.braintree()
-    console.log(this.paymentValidated)
+    console.log(store.paymentValidated)
   }
 };
 </script>
@@ -45,7 +45,8 @@ export default {
       <p>Check your email for order summary!
       </p>
       <div class="text-center">
-        <router-link class="btn btn-primary bg-dark w-25 text-light border-0 rounded-0 my-3" :to="{ name: 'home' }">Home</router-link>
+        <router-link class="btn btn-primary bg-dark w-25 text-light border-0 rounded-0 my-3"
+          :to="{ name: 'home' }">Home</router-link>
       </div>
     </div>
 
@@ -66,12 +67,13 @@ export default {
             placeholder="name@example.com" required />
         </div>
         <div id="dropin-wrapper">
-  <div id="checkout-message"></div>
-  <div id="dropin-container"></div>
-  <!-- <button id="submit-button">Submit payment</button> -->
-</div>
+          <div id="checkout-message"></div>
+          <div id="dropin-container"></div>
+          <!-- <button id="submit-button">Submit payment</button> -->
+        </div>
 
-        <button class="btn btn-outline-dark d-block mt-4" :class="!this.paymentValidated ? 'disabled' : ''">Confirm</button> 
+        <button class="btn btn-outline-dark d-block mt-4"
+          :class="store.paymentValidated == false ? 'disabled' : ''">Confirm</button>
       </div>
     </form>
   </div>

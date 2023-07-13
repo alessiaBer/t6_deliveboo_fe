@@ -17,6 +17,7 @@ export const store = reactive({
   phone: null,
   email: "",
   status: "Ordine inviato",
+  paymentValidated: false,
   /* displayMenu(slug) {
     const url = this.api + slug;
     axios
@@ -72,7 +73,8 @@ export const store = reactive({
     this.prices = [];
     this.totalPrice = 0;
     this.cartItemCount = 0;
-    
+    store.paymentValidated = false
+
     localStorage.removeItem("cart");
     localStorage.removeItem("prices");
   },
@@ -120,20 +122,16 @@ export const store = reactive({
       container: '#dropin-container'
     }, function (createErr, instance) {
       input.addEventListener('mouseleave', function () {
-        instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
-          return requestPaymentMethodErr
-          // When the user clicks on the 'Submit payment' button this code will send the
-          // encrypted payment information in a variable called a payment method nonce
-  
-            /* if (result.success) {
-              $('#checkout-message').html('<h1>Success</h1><p>Your Drop-in UI is working! Check your <a href="https://sandbox.braintreegateway.com/login">sandbox Control Panel</a> for your test transactions.</p><p>Refresh to try another transaction.</p>');
-            } else {
-              console.log(result);
-              $('#checkout-message').html('<h1>Error</h1><p>Check your console.</p>');
-            } */
-          });
+        instance.requestPaymentMethod((requestPaymentMethodErr, payload) => {
+          if (requestPaymentMethodErr) {
+            console.error(requestPaymentMethodErr);
+          } else {
+            store.paymentValidated = true
+            console.log(store.paymentValidated);
+          }
         });
       });
+    });
   },
   postMail() {
     const data = {
