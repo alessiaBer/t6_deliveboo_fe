@@ -6,7 +6,7 @@ export default {
     return {
       ale: {
         name: "ALESSIA BERTINATO",
-        imgUrl: "https://example.com/card4.jpg",
+        imgUrl: "/AleContact.png",
         links: {
           linkedin: "https://www.linkedin.com/in/alessia-bertinato/",
           github: "https://github.com/alessiaBer",
@@ -15,7 +15,7 @@ export default {
       cards: [
         {
           name: "LUCA RANIERI",
-          imgUrl: "https://example.com/card1.jpg",
+          imgUrl: "/LucaContact.png",
           links: {
             linkedin: "https://www.linkedin.com/in/lucaranieri/",
             github: "https://github.com/LucaRanieri96",
@@ -23,7 +23,7 @@ export default {
         },
         {
           name: "SIMONE BACALONI",
-          imgUrl: "https://example.com/card2.jpg",
+          imgUrl: "/BacaContact.png",
           links: {
             linkedin: "https://www.linkedin.com/in/simone-bacaloni-930630280/",
             github: "https://github.com/SimoneBaca",
@@ -31,7 +31,7 @@ export default {
         },
         {
           name: "FABRIZIO GUORIGLIA",
-          imgUrl: "https://example.com/card3.jpg",
+          imgUrl: "/FabriContact.png",
           links: {
             linkedin: "https://www.linkedin.com/in/fabrizio-guariglia/",
             github: "https://github.com/Fabrizio1919",
@@ -39,7 +39,7 @@ export default {
         },
         {
           name: "PAOLO ZAMPA",
-          imgUrl: "https://example.com/card5.jpg",
+          imgUrl: "/PaoloContact.png",
           links: {
             linkedin: "https://www.linkedin.com/in/paolo-zampa-068b45280/",
             github: "https://github.com/PaoloZampa",
@@ -56,7 +56,7 @@ export default {
     <h2 class="text-center text-light stroke">Team Leader</h2>
     <div class="row row-cols-1 row-cols-md-2 justify-content-center">
       <div class="col mb-2">
-        <div class="card my_card">
+        <div class="card my_card" :style="{'background-image' : 'url('+'../assets/imgs' + ale.imgUrl+')' }">
           <div class="card-img-overlay d-flex flex-column justify-content-between">
             <h2 class="card-title orientation">{{ale.name}}</h2>
             <div class="my_links ms-3">
@@ -70,7 +70,8 @@ export default {
     <h2 class="text-center text-dark stroke">Team Members</h2>
     <div class="row row-cols-1 row-cols-md-2">
       <div class="col mb-2" v-for="card in cards">
-        <div class="card my_card">
+
+        <div class="card my_card" :style="{'background-image' : 'url('+'../assets/imgs' + card.imgUrl+')' }">
           <div class="card-img-overlay d-flex flex-column justify-content-between">
             <h2 class="card-title orientation">{{card.name}}</h2>
             <div class="my_links ms-3">
@@ -86,11 +87,15 @@ export default {
 
 <style lang="scss" scoped>
 .my_card{
-  height: 400px;
-  background-color: #161616;
+  height: 600px;
   background-size: cover;
 }
 .orientation{
+  -webkit-text-stroke: 0.5px rgb(255, 255, 255);
+  // background-color: rgba($color: #000000, $alpha: 0.5);
+  text-shadow: 2px 2px 3px #000000;
+  width: fit-content;
+  padding: 2px;
   font-size: 18px;
   font-weight: 400;
   letter-spacing: -6px;
