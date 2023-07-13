@@ -8,7 +8,13 @@ export default {
     }
   },
   methods: {
-    verifyPayment() {
+    verify() {
+      const braintree = store.braintree()
+      if (braintree) {
+        this.paymentValidated = true
+      }
+    }
+    /* verifyPayment() {
       const div = document.getElementById('dropin-container')
       const errorCard = `<div data-braintree-id="number-field-error" class="braintree-form__field-error" role="alert">This card number is not valid.</div>`
       const errorDate = `<div data-braintree-id="expiration-date-field-error" class="braintree-form__field-error" role="alert">This expiration date is not valid.</div>`
@@ -20,12 +26,13 @@ export default {
         this.paymentValidated = true
         console.log(this.paymentValidated)
       }
-    } 
+    }  */
   },
   mounted() {
     store.returnIds()
     store.calcTotPrice()
     store.braintree()
+    console.log(this.paymentValidated)
   }
 };
 </script>
@@ -58,12 +65,13 @@ export default {
           <input type="email" class="form-control" id="email" name="email" v-model="store.email"
             placeholder="name@example.com" required />
         </div>
-        <div class="payment">
-          <div id="dropin-container" ref="paymentContainer"></div>
-          <a id="submit-button" class="button button--small button--green" @click="verifyPayment()">Purchase</a>
-        </div>
+        <div id="dropin-wrapper">
+  <div id="checkout-message"></div>
+  <div id="dropin-container"></div>
+  <!-- <button id="submit-button">Submit payment</button> -->
+</div>
 
-        <button class="btn btn-outline-dark d-block mt-4" :class="!this.paymentValidated ? 'disabled' : ''">Confirm</button>
+        <button class="btn btn-outline-dark d-block mt-4" :class="!this.paymentValidated ? 'disabled' : ''">Confirm</button> 
       </div>
     </form>
   </div>
