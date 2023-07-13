@@ -15,11 +15,11 @@ export default {
   </div>
 
   <section class="py-5">
-    <h1 class="text-black text-center">CONTATTACI</h1>
+    <h1 class="text-black text-center mb-4 ">CONTATTACI</h1>
 
     <div class="container">
-      <div class="card p-3 shadow">
-        <form>
+      
+        <form class="rounded-0 border-0 shadow p-3">
           <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input
@@ -58,9 +58,9 @@ export default {
             ></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary">Send</button>
+          <button type="submit" class="btn btn-info">Send</button>
         </form>
-      </div>
+      
     </div>
   </section>
 </template>
