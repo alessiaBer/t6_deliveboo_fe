@@ -142,8 +142,7 @@ export default {
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasTop"
-          aria-controls="offcanvasTop"
-        >
+          aria-controls="offcanvasTop">
           Types
         </button>
       </div>
@@ -166,6 +165,7 @@ export default {
             aria-label="Close"
           ></button>
         </div>
+        
         <div class="offcanvas-body my_offcanvas">
           <div class="container">
             <div class="row row-cols-1 g-4 cards">
@@ -221,7 +221,7 @@ export default {
       </div>
 
       <div
-        class="row row-cols-1 row-cols-md-3 row-cols-xl-4 g-4 my-4"
+        class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 my-4"
         v-if="restaurants.length > 0"
       >
         <div class="" v-for="restaurant in restaurants">

@@ -60,7 +60,7 @@ export default {
     </div>
   </div>
   <div class="container">
-    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
       <div class="col"  v-for="plate in store.plates" :key="plate.id">
         <div class="card-hover my-3 shadow">
           <div class="card-hover__content">
