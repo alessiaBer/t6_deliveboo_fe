@@ -35,6 +35,7 @@ export const store = reactive({
       this.prices.push(price);
       localStorage.setItem("cart", JSON.stringify(this.cart));
       localStorage.setItem("prices", JSON.stringify(this.prices));
+      localStorage.setItem("restaurant", JSON.stringify(this.restaurant));
       this.calcTotPrice();
       this.cartItemCount++;
       console.log(this.cartItemCount);
@@ -45,12 +46,16 @@ export const store = reactive({
   initCartFromLocalStorage() {
     const savedCart = localStorage.getItem("cart");
     const savedPrice = localStorage.getItem("prices");
+    const savedRestaurant = localStorage.getItem("restaurant");
     if (savedCart) {
       this.cart = JSON.parse(savedCart);
       this.cartItemCount = this.cart.length;
     }
     if (savedPrice) {
       this.prices = JSON.parse(savedPrice);
+    } 
+    if(savedRestaurant) {
+      this.restaurant = JSON.parse(savedRestaurant);
     }
   },
   calcTotPrice() {
@@ -65,12 +70,14 @@ export const store = reactive({
   resetCart() {
     this.cart = [];
     this.prices = [];
+    //this.restaurant = null;
     this.totalPrice = 0;
     this.cartItemCount = 0;
     store.paymentValidated = false
 
     localStorage.removeItem("cart");
     localStorage.removeItem("prices");
+    localStorage.removeItem("restaurant");
   },
   returnIds() {
     this.cart.forEach((plate) => {
@@ -128,6 +135,7 @@ export const store = reactive({
     });
   },
   postMail() {
+    console.log(this.restaurant)
     const data = {
       clientEmail: this.email,
       userEmail: this.restaurant.user.email,

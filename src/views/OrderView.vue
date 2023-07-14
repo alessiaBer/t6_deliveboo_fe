@@ -18,7 +18,7 @@ export default {
     store.returnIds();
     store.calcTotPrice();
     store.braintree();
-    console.log(store.paymentValidated);
+    console.log(store.restaurant);
   },
 };
 </script>
