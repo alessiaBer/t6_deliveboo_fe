@@ -58,7 +58,7 @@ export default {
 <template>
   <div class="my-container py-5">
     <div class="container" ref="slide">
-      <h1 class="my-4">Lavora con Deliveroo</h1>
+      <h1 class="my-4 text-uppercase text-center">Lavora con Deliveboo</h1>
       <div class="row row-cols-1 row-cols-md-3">
         <div v-for="(card, index) in cards" :key="index" class="col">
           <div :class="`card ${card.color}`">
