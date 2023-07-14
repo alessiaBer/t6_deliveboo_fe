@@ -33,19 +33,18 @@ export default {
           color: "my-card-grey",
         },
       ],
+      animateSlide: null,
     };
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger);
 
-    const slide = this.$refs.slide;
-
-    const animateSlide = () => {
-      gsap.from(slide, {
+    this.animateSlide = () => {
+      gsap.from(this.$refs.slide, {
         opacity: 0,
         y: 150,
         scrollTrigger: {
-          trigger: slide,
+          trigger: this.$refs.slide,
           start: "top 92%",
           end: "bottom 70%",
           toggleActions: "play none none reverse",
@@ -53,15 +52,26 @@ export default {
       });
     };
 
-    animateSlide();
-    window.addEventListener("resize", animateSlide);
-
     setTimeout(() => {
-      animateSlide();
-    }, 1000);
+      if (this.$refs.slide) {
+        this.animateSlide();
+      }
+    }, 1000); // Delay the animation by 1 second (1000 milliseconds)
+
+    window.addEventListener("resize", this.handleResize);
   },
   beforeDestroy() {
-    window.removeEventListener("resize", animateSlide);
+    window.removeEventListener("resize", this.handleResize);
+  },
+  methods: {
+    handleResize() {
+      if (this.animateSlide.isActive()) {
+        this.animateSlide.kill();
+      }
+
+      gsap.set(this.$refs.slide, { clearProps: "all" });
+      this.animateSlide();
+    },
   },
 };
 </script>
