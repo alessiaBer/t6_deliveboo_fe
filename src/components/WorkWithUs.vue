@@ -40,20 +40,31 @@ export default {
 
     const slide = this.$refs.slide;
 
-    gsap.from(slide, {
-      opacity: 0,
-      y: 150,
-      scrollTrigger: {
-        trigger: slide,
-        start: "top 80%",
-        end: "bottom 70%",
-        toggleActions: "play none none reverse",
-      },
-    });
+    const animateSlide = () => {
+      gsap.from(slide, {
+        opacity: 0,
+        y: 150,
+        scrollTrigger: {
+          trigger: slide,
+          start: "top 92%",
+          end: "bottom 70%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    };
+
+    animateSlide();
+    window.addEventListener("resize", animateSlide);
+
+    setTimeout(() => {
+      animateSlide();
+    }, 1000);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", animateSlide);
   },
 };
 </script>
-
 
 <template>
   <div class="my-container py-5">

@@ -1,5 +1,8 @@
 <script>
 import axios from "axios";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 
 import BannerHome from "../components/BannerHome.vue";
 import FooterHome from "../components/FooterHome.vue";
@@ -102,6 +105,7 @@ export default {
     },
   },
   mounted() {
+
     const url = this.base_API + "api/types";
     axios
       .get(url)
