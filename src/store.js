@@ -18,17 +18,29 @@ export const store = reactive({
   email: "",
   status: "Ordine inviato",
   paymentValidated: false,
-  
+
   addToCart(plate) {
-    this.cart.push(plate);
-    const price = plate.price;
-    this.prices.push(price);
-    //console.log("this is a plate:", this.cart);
-    localStorage.setItem("cart", JSON.stringify(this.cart));
-    localStorage.setItem("prices", JSON.stringify(this.prices));
-    this.calcTotPrice();
-    this.cartItemCount++;
-    console.log(this.cartItemCount);
+    if (this.cart.length === 0 || this.cart[0].restaurant_id === plate.restaurant_id) {
+      if (this.cart.length === 0) {
+        this.cart.push(plate);
+        this.currentRestaurantId = plate.restaurant_id;
+        console.log(plate.restaurant_id);
+      } else {
+        if (this.currentRestaurantId === plate.restaurant_id) {
+          this.cart.push(plate);
+        }
+      }
+
+      const price = plate.price;
+      this.prices.push(price);
+      localStorage.setItem("cart", JSON.stringify(this.cart));
+      localStorage.setItem("prices", JSON.stringify(this.prices));
+      this.calcTotPrice();
+      this.cartItemCount++;
+      console.log(this.cartItemCount);
+    } else {
+      console.log("DIO CAN");
+    }
   },
   initCartFromLocalStorage() {
     const savedCart = localStorage.getItem("cart");
