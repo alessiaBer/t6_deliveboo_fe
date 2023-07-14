@@ -56,7 +56,7 @@ export default {
     class="card border-0 rounded-0 shadow my-5 text-center py-3 bg_pink"
     v-if="store.cartItemCount === 0"
     >
-    <h1 class="text-uppercase">order succesfully sent!</h1>
+    <h1 class="text-uppercase">order successfully sent!</h1>
     <p>Check your email for order summary!</p>
     <div class="text-center">
       <router-link
