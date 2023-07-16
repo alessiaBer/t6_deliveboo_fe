@@ -24,7 +24,7 @@ export const store = reactive({
       if (this.cart.length === 0) {
         this.cart.push(plate);
         this.currentRestaurantId = plate.restaurant_id;
-        console.log(plate.restaurant_id);
+        //console.log(plate.restaurant_id);
       } else {
         if (this.currentRestaurantId === plate.restaurant_id) {
           this.cart.push(plate);
@@ -38,9 +38,9 @@ export const store = reactive({
       localStorage.setItem("restaurant", JSON.stringify(this.restaurant));
       this.calcTotPrice();
       this.cartItemCount++;
-      console.log(this.cartItemCount);
+      //console.log(this.cartItemCount);
     } else {
-      console.log("DIO CAN");
+      //console.log("DIO CAN");
     }
   },
   initCartFromLocalStorage() {
@@ -83,7 +83,7 @@ export const store = reactive({
     this.cart.forEach((plate) => {
       this.plateIds.push(plate.id);
     })
-    console.log(this.plateIds)
+    //console.log(this.plateIds)
   },
   postOrder() {
     const data = {
@@ -99,7 +99,7 @@ export const store = reactive({
       .post(this.post_api, data)
       .then((response) => {
         if (response.data.success) {
-          console.log("Bravissim*");
+          console.log("Bravissimə");
           this.fullname = "";
           this.address = "";
           this.phone = "";
@@ -107,7 +107,7 @@ export const store = reactive({
           this.totalPrice = null;
           this.plateIds = [];
         } else if (response.data.success === false) {
-          console.log(response.data.errors);
+          //console.log(response.data.errors);
           this.errors = response.data.errors;
         }
       })
@@ -128,14 +128,14 @@ export const store = reactive({
             console.error(requestPaymentMethodErr);
           } else {
             store.paymentValidated = true
-            console.log(store.paymentValidated);
+            //console.log(store.paymentValidated);
           }
         });
       });
     });
   },
   postMail() {
-    console.log(this.restaurant)
+    //console.log(this.restaurant)
     const data = {
       clientEmail: this.email,
       userEmail: this.restaurant.user.email,
@@ -145,13 +145,13 @@ export const store = reactive({
       .post(this.mail_api, data)
       .then((response) => {
         if (response.data.success) {
-          console.log("Bravo Palino");
+          
           this.email = "";
           this.cart = [];
           this.cartItemCount = 0;
 
         } else if (response.data.success === false) {
-          console.log(response.data.errors);
+          //console.log(response.data.errors);
           this.errors = response.data.errors;
         }
       })

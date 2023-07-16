@@ -138,14 +138,6 @@ export default {
     };
   },
 
-  mounted() {
-    // const columns = document.querySelectorAll(".column");
-    // columns.forEach((column) => {
-    //   column.style.setProperty("--animation", "slide");
-    //   column.style.setProperty("height", "200%");
-    //   column.innerHTML = column.innerHTML + column.innerHTML;
-    // });
-  },
 };
 </script>
 
@@ -167,19 +159,6 @@ export default {
 .slider {
   background-color: rgba(0, 0, 0, 0);
 }
-
-// .slide {
-//   animation: scroll 20s linear infinite;
-// }
-
-// .slide .row {
-//   flex-wrap: nowrap;
-// }
-
-// .slide .row:nth-child(2) {
-//   transform: translateX(-150px);
-// }
-
 .slide .image-container {
   display: flex;
   justify-content: center;
@@ -204,14 +183,4 @@ export default {
   opacity: 1;
   cursor: pointer;
 }
-
-// @keyframes scroll {
-//   0% {
-//     transform: translateX(0%);
-//   }
-
-//   100% {
-//     transform: translateX(-100%);
-//   }
-// }
 </style>

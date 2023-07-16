@@ -18,7 +18,7 @@ export default {
     store.returnIds();
     store.calcTotPrice();
     store.braintree();
-    console.log(store.restaurant);
+    //console.log(store.restaurant);
   },
 };
 </script>
@@ -172,8 +172,10 @@ export default {
 
 .image {
   height: 100px;
+  width: 100px;
   img {
     height: 100%;
+    width: 100%;
   }
 }
 </style>

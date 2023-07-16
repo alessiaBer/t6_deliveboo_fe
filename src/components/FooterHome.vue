@@ -78,7 +78,7 @@ export default {
 .card {
   border: none;
   background-color: rgba(207, 207, 207, 0.26);
-  padding: 2rem;
+  padding: 1rem;
   height: 100%;
 }
 

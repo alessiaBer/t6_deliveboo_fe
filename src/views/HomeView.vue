@@ -1,7 +1,5 @@
 <script>
 import axios from "axios";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
 import BannerHome from "../components/BannerHome.vue";
@@ -85,7 +83,7 @@ export default {
             });
           }
 
-          console.log(this.restaurants);
+          //console.log(this.restaurants);
         })
         .catch((error) => {
           console.log(error);
@@ -110,7 +108,7 @@ export default {
     axios
       .get(url)
       .then((response) => {
-        console.log(response);
+        //console.log(response);
         this.types = response.data.results;
       })
       .catch((error) => {
@@ -140,9 +138,9 @@ export default {
         <h2 class="text-uppercase">Select the restaurant Type</h2>
       </div>
 
-      <div class="container w-25">
+      <div class="container text-center">
         <button
-          class="btn bg_blue text-white p-3 w-100 rounded-0 shadow mt-2 text-uppercase button_hover"
+          class="btn bg_blue text-white p-3 rounded-0 shadow mt-2 text-uppercase button_hover px-5"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasTop"
@@ -256,7 +254,7 @@ export default {
                 {{ restaurant.description }}
               </span>
             </div>
-            <!-- resettare sfondo scuretto -->
+            
           </div>
         </div>
       </div>

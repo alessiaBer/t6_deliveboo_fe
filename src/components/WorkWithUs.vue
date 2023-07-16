@@ -1,6 +1,4 @@
 <script>
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default {
   name: "WorkWithUs",
@@ -10,41 +8,30 @@ export default {
         {
           title: "Rider",
           description:
-            "Diventa un rider: flessibilità, ottimi guadagni e un mondo di vantaggi per te.",
-          buttonText: "Unisciti a noi",
+            "Become a rider: flexibility, great earnings, and a world of benefits for you.",
+          buttonText: "Join us",
           imageUrl: "https://cwa.roocdn.com/_next/static/riders.90e61988.jpg",
           color: "my-card-red",
         },
         {
-          title: "Ristoranti",
+          title: "Restaurants",
           description:
-            "Diventa partner di Deliveroo e raggiungi sempre più clienti. Ci occupiamo noi della consegna, così che la tua unica preoccupazione sia continuare a preparare il miglior cibo.",
-          buttonText: "Diventa nostro partner",
+            "Become a Deliveroo partner and reach more customers. We take care of the delivery, so your only concern is to continue preparing the best food.",
+          buttonText: "Become our partner",
           imageUrl:
             "https://cwa.roocdn.com/_next/static/restaurants.3db91a35.jpg",
           color: "my-card-orange",
         },
         {
-          title: "Lavora con noi",
+          title: "Join us",
           description:
-            "La nostra missione è trasformare il modo in cui le persone mangiano. È un obiettivo ambizioso, come noi, e ci servono persone che ci aiutino a raggiungerlo.",
-          buttonText: "Scopri di più",
+            "Our mission is to transform the way people eat. It's an ambitious goal, just like us, and we need people to help us achieve it.",
+          buttonText: "Learn more",
           imageUrl: "https://cwa.roocdn.com/_next/static/team.d18fbb67.jpg",
           color: "my-card-grey",
         },
       ],
-      animateSlide: null,
     };
-  },
-  methods: {
-    handleResize() {
-      if (this.animateSlide.isActive()) {
-        this.animateSlide.kill();
-      }
-
-      gsap.set(this.$refs.slide, { clearProps: "all" });
-      this.animateSlide();
-    },
   },
 };
 </script>
@@ -52,8 +39,8 @@ export default {
 <template>
   <div class="my-container py-5">
     <div class="container" ref="slide">
-      <h1 class="my-4 text-uppercase text-center">Lavora con Deliveboo</h1>
-      <div class="row row-cols-1 row-cols-md-3">
+      <h1 class="my-4 text-uppercase text-center">Work with Deliveboo</h1>
+      <div class="row row-cols-1 row-cols-md-3 g-3">
         <div v-for="(card, index) in cards" :key="index" class="col">
           <div :class="`card ${card.color}`">
             <img

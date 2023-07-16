@@ -22,7 +22,7 @@ export default {
       opacity: 0,
       scrollTrigger: {
         trigger: button,
-        start: "top 90%",
+        start: "top 95%",
         end: "bottom 60%",
         toggleActions: "play none none reverse",
       },
