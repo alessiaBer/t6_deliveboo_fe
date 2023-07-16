@@ -54,8 +54,8 @@ export default {
 <template>
     <div class="container">
       <h2 class="text-center text-light stroke">Team Leader</h2>
-      <div class="row row-cols-1 row-cols-md-2 justify-content-center">
-        <div class="col mb-2">
+      <div class="row row-cols-1 row-cols-lg-2 justify-content-center">
+        <div class="col mb-2 rounded-0 border-0 shadow p-3" >
           <div class="card my_card" :style="{'background-image' : 'url('+'../assets/imgs' + ale.imgUrl+')' }">
             <div class="card-img-overlay d-flex flex-column justify-content-between">
               <h2 class="card-title orientation">{{ale.name}}</h2>
@@ -68,7 +68,7 @@ export default {
         </div>
       </div>
       <h2 class="text-center text-dark stroke">Team Members</h2>
-      <div class="row row-cols-1 row-cols-md-2">
+      <div class="row mb-2 rounded-0 border-0 shadow p-3 row-cols-1 row-cols-lg-2 g-3">
         <div class="col mb-2" v-for="card in cards">
   
           <div class="card my_card" :style="{'background-image' : 'url('+'../assets/imgs' + card.imgUrl+')' }">
@@ -87,11 +87,12 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.wallpaper{
-  background-color: #efe3cd;
-}
 .my_card{
-  height: 600px;
+  height: 500px;
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  background-position: center;
   background-size: cover;
   a{
     color: white;
