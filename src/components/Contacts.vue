@@ -60,8 +60,8 @@ export default {
           <div class="card-img-overlay d-flex flex-column justify-content-between">
             <h2 class="card-title orientation">{{ale.name}}</h2>
             <div class="my_links ms-3">
-              <a :href="ale.links[0]"><font-awesome-icon class="me-2" :icon="['fab', 'linkedin']" /></a>
-              <a :href="ale.links[1]"><font-awesome-icon :icon="['fab', 'github']" /></a>
+              <a :href="ale.links['linkedin']"><font-awesome-icon class="me-2" :icon="['fab', 'linkedin']" /></a>
+              <a :href="ale.links['github']"><font-awesome-icon :icon="['fab', 'github']" /></a>
             </div>
           </div>
         </div>
@@ -75,8 +75,8 @@ export default {
           <div class="card-img-overlay d-flex flex-column justify-content-between">
             <h2 class="card-title orientation">{{card.name}}</h2>
             <div class="my_links ms-3">
-              <a :href="card.links[0]"><font-awesome-icon class="me-2" :icon="['fab', 'linkedin']" /></a>
-              <a :href="card.links[1]"><font-awesome-icon :icon="['fab', 'github']" /></a>
+              <a :href="card.links['linkedin']"><font-awesome-icon class="me-2" :icon="['fab', 'linkedin']" /></a>
+              <a :href="card.links['github']"><font-awesome-icon :icon="['fab', 'github']" /></a>
             </div>
           </div>
         </div>
@@ -89,6 +89,9 @@ export default {
 .my_card{
   height: 600px;
   background-size: cover;
+  a{
+    color: white;
+  }
 }
 .orientation{
   -webkit-text-stroke: 0.5px rgb(255, 255, 255);
