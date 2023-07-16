@@ -36,33 +36,6 @@ export default {
       animateSlide: null,
     };
   },
-  mounted() {
-    gsap.registerPlugin(ScrollTrigger);
-
-    this.animateSlide = () => {
-      gsap.from(this.$refs.slide, {
-        opacity: 0,
-        y: 150,
-        scrollTrigger: {
-          trigger: this.$refs.slide,
-          start: "top 92%",
-          end: "bottom 70%",
-          toggleActions: "play none none reverse",
-        },
-      });
-    };
-
-    setTimeout(() => {
-      if (this.$refs.slide) {
-        this.animateSlide();
-      }
-    }, 1000); // Delay the animation by 1 second (1000 milliseconds)
-
-    window.addEventListener("resize", this.handleResize);
-  },
-  beforeDestroy() {
-    window.removeEventListener("resize", this.handleResize);
-  },
   methods: {
     handleResize() {
       if (this.animateSlide.isActive()) {
