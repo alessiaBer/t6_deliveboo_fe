@@ -62,7 +62,7 @@ export default {
 
 <style lang="scss" scoped>
 .my-container {
-  background-color: rgb(255, 218, 224);
+  background-color: rgb(254, 183, 196);
 }
 
 .card {

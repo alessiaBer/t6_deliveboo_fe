@@ -130,142 +130,148 @@ export default {
 </script>
 
 <template>
-  <BannerHome></BannerHome>
+  <div class="wallpaper">
 
-  <section class="aboutme">
-    <div class="container w-75 my-5">
-      <div class="text-center">
-        <h2 class="text-uppercase">Select the restaurant Type</h2>
-      </div>
-
-      <div class="container text-center">
-        <button
-          class="btn bg_blue text-white p-3 rounded-0 shadow mt-2 text-uppercase button_hover px-5"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasTop"
-          aria-controls="offcanvasTop">
-          Types
-        </button>
-      </div>
-
-      <div
-        class="offcanvas offcanvas-start m-2"
-        data-bs-scroll="true"
-        tabindex="-1"
-        id="offcanvasTop"
-        aria-labelledby="offcanvasTopLabel"
-      >
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title text-uppercase" id="offcanvasTopLabel">
-            Filter for your favorite types!
-          </h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
+    <BannerHome></BannerHome>
+  
+    <section class="aboutme">
+      <div class="container w-75 my-5">
+        <div class="text-center">
+          <h2 class="text-uppercase">Select the restaurant Type</h2>
         </div>
-        
-        <div class="offcanvas-body my_offcanvas">
-          <div class="container">
-            <div class="row row-cols-1 g-4 cards">
-              <div class="col" v-for="(card, index) in cardsOC" :key="index">
-                <a href="#" class="">
-                  <div
-                    class="card text-bg-dark my_card rounded-0 border-0 shadow"
-                    :class="{ selected: isSelected(index) }"
-                    @click="toggleSelection(index)"
-                  >
-                    <label class="my_label" :for="'tipo' + index">
-                      <img
-                        :src="card.imageUrl"
-                        class="card-img rounded-0"
-                        alt="veggie"
-                      />
-                      <div
-                        class="card-img-overlay d-flex justify-content-center"
-                      >
-                        <h5 class="card-title align-self-center text-uppercase">
-                          {{ card.title }}
-                        </h5>
-                      </div>
-                    </label>
-                  </div>
-                </a>
+  
+        <div class="container text-center">
+          <button
+            class="btn bg_blue text-white p-3 rounded-0 shadow mt-2 text-uppercase button_hover px-5"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasTop"
+            aria-controls="offcanvasTop">
+            Types
+          </button>
+        </div>
+  
+        <div
+          class="offcanvas offcanvas-start m-2"
+          data-bs-scroll="true"
+          tabindex="-1"
+          id="offcanvasTop"
+          aria-labelledby="offcanvasTopLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-uppercase" id="offcanvasTopLabel">
+              Filter for your favorite types!
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          
+          <div class="offcanvas-body my_offcanvas">
+            <div class="container">
+              <div class="row row-cols-1 g-4 cards">
+                <div class="col" v-for="(card, index) in cardsOC" :key="index">
+                  <a href="#" class="">
+                    <div
+                      class="card text-bg-dark my_card rounded-0 border-0 shadow"
+                      :class="{ selected: isSelected(index) }"
+                      @click="toggleSelection(index)"
+                    >
+                      <label class="my_label" :for="'tipo' + index">
+                        <img
+                          :src="card.imageUrl"
+                          class="card-img rounded-0"
+                          alt="veggie"
+                        />
+                        <div
+                          class="card-img-overlay d-flex justify-content-center"
+                        >
+                          <h5 class="card-title align-self-center text-uppercase">
+                            {{ card.title }}
+                          </h5>
+                        </div>
+                      </label>
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="container my_check">
-            <div class="row row-cols-3 g-4 cards">
-              <div
-                class="col form-check"
-                v-for="(tipo, index) in types"
-                :key="tipo.id"
-              >
-                <div class="card text-bg-dark">
-                  <label class="form-check-label p-5">
-                    {{ tipo.name }}
-                    <input
-                      class="form-check-input"
-                      :id="'tipo' + index"
-                      v-model="selectedTypes"
-                      type="checkbox"
-                      :value="tipo.slug"
-                    />
-                  </label>
+            <div class="container my_check">
+              <div class="row row-cols-3 g-4 cards">
+                <div
+                  class="col form-check"
+                  v-for="(tipo, index) in types"
+                  :key="tipo.id"
+                >
+                  <div class="card text-bg-dark">
+                    <label class="form-check-label p-5">
+                      {{ tipo.name }}
+                      <input
+                        class="form-check-input"
+                        :id="'tipo' + index"
+                        v-model="selectedTypes"
+                        type="checkbox"
+                        :value="tipo.slug"
+                      />
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div
-        class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 my-4"
-        v-if="restaurants.length > 0"
-      >
-        <div class="" v-for="restaurant in restaurants">
-          <div
-            class="card restaurant_card rounded-0 shadow h-100 bg-dark border-0"
-          >
-            <div class="card-body align-items-center border-0">
-              <h4 class="text-uppercase text-center text-white">
-                {{ restaurant.name }}
-              </h4>
-            </div>
-            <img
-              class="card-img-top rounded-0 border-0"
-              :src="base_API + 'storage/' + restaurant.image_url"
-              alt="Card image cap"
-            />
-            <router-link
-              :to="{
-                name: 'single-restaurant',
-                params: { slug: restaurant.slug },
-              }"
-              class="btn bg_blue bg_blue text-light rounded-0 shadow py-2 button_hover"
+  
+        <div
+          class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 my-4"
+          v-if="restaurants.length > 0"
+        >
+          <div class="" v-for="restaurant in restaurants">
+            <div
+              class="card restaurant_card rounded-0 shadow h-100 bg-dark border-0"
             >
-              MENU
-            </router-link>
-            <div class="card-footer py-3 rounded-0 border-0">
-              <span class="text-uppercase fw-bold">
-                {{ restaurant.description }}
-              </span>
+              <div class="card-body align-items-center border-0">
+                <h4 class="text-uppercase text-center text-white">
+                  {{ restaurant.name }}
+                </h4>
+              </div>
+              <img
+                class="card-img-top rounded-0 border-0"
+                :src="base_API + 'storage/' + restaurant.image_url"
+                alt="Card image cap"
+              />
+              <router-link
+                :to="{
+                  name: 'single-restaurant',
+                  params: { slug: restaurant.slug },
+                }"
+                class="btn bg_blue bg_blue text-light rounded-0 shadow py-2 button_hover"
+              >
+                MENU
+              </router-link>
+              <div class="card-footer py-3 rounded-0 border-0">
+                <span class="text-uppercase fw-bold">
+                  {{ restaurant.description }}
+                </span>
+              </div>
+              
             </div>
-            
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <WorkWithUs />
-  <FooterHome />
-  <ScrollButton/>
+    </section>
+    <WorkWithUs />
+    <FooterHome />
+    <ScrollButton/>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+.wallpaper{
+  background-color: #f8f1e5 !important;
+}
 h4 {
   margin-bottom: 0;
 }

@@ -1,5 +1,4 @@
 <script>
-import { gsap } from "gsap";
 import SlideBanner from "../components/SlideBanner.vue";
 
 export default {

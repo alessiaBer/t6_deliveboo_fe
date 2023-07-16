@@ -52,40 +52,44 @@ export default {
 </script>
 
 <template>
-  <div class="container">
-    <h2 class="text-center text-light stroke">Team Leader</h2>
-    <div class="row row-cols-1 row-cols-md-2 justify-content-center">
-      <div class="col mb-2">
-        <div class="card my_card" :style="{'background-image' : 'url('+'../assets/imgs' + ale.imgUrl+')' }">
-          <div class="card-img-overlay d-flex flex-column justify-content-between">
-            <h2 class="card-title orientation">{{ale.name}}</h2>
-            <div class="my_links ms-3">
-              <a :href="ale.links['linkedin']"><font-awesome-icon class="me-2" :icon="['fab', 'linkedin']" /></a>
-              <a :href="ale.links['github']"><font-awesome-icon :icon="['fab', 'github']" /></a>
+    <div class="container">
+      <h2 class="text-center text-light stroke">Team Leader</h2>
+      <div class="row row-cols-1 row-cols-md-2 justify-content-center">
+        <div class="col mb-2">
+          <div class="card my_card" :style="{'background-image' : 'url('+'../assets/imgs' + ale.imgUrl+')' }">
+            <div class="card-img-overlay d-flex flex-column justify-content-between">
+              <h2 class="card-title orientation">{{ale.name}}</h2>
+              <div class="my_links ms-3">
+                <a :href="ale.links['linkedin']"><font-awesome-icon class="me-2" :icon="['fab', 'linkedin']" /></a>
+                <a :href="ale.links['github']"><font-awesome-icon :icon="['fab', 'github']" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="text-center text-dark stroke">Team Members</h2>
+      <div class="row row-cols-1 row-cols-md-2">
+        <div class="col mb-2" v-for="card in cards">
+  
+          <div class="card my_card" :style="{'background-image' : 'url('+'../assets/imgs' + card.imgUrl+')' }">
+            <div class="card-img-overlay d-flex flex-column justify-content-between">
+              <h2 class="card-title orientation">{{card.name}}</h2>
+              <div class="my_links ms-3">
+                <a :href="card.links['linkedin']"><font-awesome-icon class="me-2" :icon="['fab', 'linkedin']" /></a>
+                <a :href="card.links['github']"><font-awesome-icon :icon="['fab', 'github']" /></a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <h2 class="text-center text-dark stroke">Team Members</h2>
-    <div class="row row-cols-1 row-cols-md-2">
-      <div class="col mb-2" v-for="card in cards">
 
-        <div class="card my_card" :style="{'background-image' : 'url('+'../assets/imgs' + card.imgUrl+')' }">
-          <div class="card-img-overlay d-flex flex-column justify-content-between">
-            <h2 class="card-title orientation">{{card.name}}</h2>
-            <div class="my_links ms-3">
-              <a :href="card.links['linkedin']"><font-awesome-icon class="me-2" :icon="['fab', 'linkedin']" /></a>
-              <a :href="card.links['github']"><font-awesome-icon :icon="['fab', 'github']" /></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </template>
 
 <style lang="scss" scoped>
+.wallpaper{
+  background-color: #efe3cd;
+}
 .my_card{
   height: 600px;
   background-size: cover;
