@@ -262,6 +262,7 @@ h5 {
 }
 
 .jumbo {
+  height: 700px;
   background-size: cover;
   background-position: center;
   color: rgb(253, 253, 253);
